@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const cartController = require('./cartController');
+const contactController = require('./contactController');
 
 /*************************** GET methods ***************************/
-//render cart page
-router.get("/", cartController.render);
-
+//render contact page
+router.get("/", contactController.render);
 
 module.exports = router;

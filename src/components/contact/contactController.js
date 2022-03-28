@@ -1,5 +1,5 @@
 /*************************** GET methods ***************************/
-// Render Cart page
+// Render contact page
 exports.render = (req, res) => {
-    res.render("cart/views/cart");
+    res.render("contact/views/contact");
 };

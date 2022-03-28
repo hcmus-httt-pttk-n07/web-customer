@@ -1,5 +1,8 @@
+const router = require('express').Router();
+const aboutController = require('./aboutController');
+
 /*************************** GET methods ***************************/
-// Render Login page
-exports.renderAboutUs = (req, res) => {
-    res.render("about/views/about");
-};
+//render about page
+router.get("/", aboutController.renderAboutUs);
+
+module.exports = router;
