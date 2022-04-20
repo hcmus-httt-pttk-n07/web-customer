@@ -1,5 +1,7 @@
-/*************************** GET methods ***************************/
-// Render Cart page
-exports.render = (req, res) => {
-    res.render("cart/views/cart");
+exports.renderRegister = (req, res) => {
+    res.render("cart/views/register");
+};
+
+exports.renderBuy = (req, res) => {
+    res.render("cart/views/buy");
 };

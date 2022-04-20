@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/signin_style.css">
 	<link rel="stylesheet" href="/css/signup_style.css">
+	<link rel="stylesheet" href="/css/layout_style.css">
 
 </head>
 
@@ -40,46 +41,52 @@
 			<div class="d-flex align-items-center justify-content-between">
 				<div class="logo">
 					<div class="site-logo">
-						<a href="/" class="js-logo-clone">Pharma</a>
+						<i class="fa-solid fa-syringe" style="color: black"></i>
+						<a href="/" class="js-logo-clone">AN BINH</a>
 					</div>
 				</div>
 				<div class="main-nav d-none d-lg-block">
 					<nav class="site-navigation text-right text-md-center" role="navigation">
 						<ul class="site-menu js-clone-nav d-none d-lg-block">
-							<li class="active"><a href="/">Home</a></li>
-							<li><a href="/store">Store</a></li>
-							<li class="has-children">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown">
-									<li><a href="#">Supplements</a></li>
-									<li class="has-children">
-										<a href="#">Vitamins</a>
-										<ul class="dropdown">
-											<li><a href="#">Supplements</a></li>
-											<li><a href="#">Vitamins</a></li>
-											<li><a href="#">Diet &amp; Nutrition</a></li>
-											<li><a href="#">Tea &amp; Coffee</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Diet &amp; Nutrition</a></li>
-									<li><a href="#">Tea &amp; Coffee</a></li>
-
-								</ul>
-							</li>
-							<li><a href="/about-us">About</a></li>
-							<li><a href="/contact-us">Contact</a></li>
+							<li><a href="/">TRANG CHU</a></li>
+							<li><a href="/store">CUU HANG</a></li>
+							<li><a href="/about-us">GIOI THIEU</a></li>
+							<li><a href="/contact-us">LIEN HE</a></li>
 						</ul>
 					</nav>
 				</div>
-				<div class="icons">
-					<a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-					<a href="/cart" class="icons-btn d-inline-block bag">
-						<span class="icon-shopping-bag"></span>
-						<span class="number">2</span>
-					</a>
-					<a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
-							class="icon-menu"></span></a>
+
+
+				<div class="row d-flex justify-content-end" style="line-height: 2.2;">
+					<div class="icons">
+						<a href="/cart/buy" class="icons-btn d-inline-block bag">
+							<span class="icon-shopping-bag"></span>
+							<span class="number">2</span>
+						</a>
+						<a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
+								class="icon-menu"></span></a>
+					</div>
+					<div class="dropdown">
+						<button class="dropdown-avatar dropdown-toggle d-flex align-items-center" type="button"
+								id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img class="avatar rounded float-left"
+								 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAUVBMVEVjo/INTqMASJ5nqPdhofE/e8wARZtdneweW68GS6Boqfg1cMFTkeFXluVcnOswa70XVqpHhNQmYrQRUaYxbb5NitpFgdE8d8gAQJhUkuEpZbcB6W3KAAADz0lEQVR4nO2c61LiQBBGSQaBoIsXvL//gy67a7lqDrmBlW7rnJ8qVHfNl5nprzsuFiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi0ma3Ps7csZ2Fh+fVUeoyd3RnoFw31VFWL3OHdw7q4wlWzf0PWMSHrgyrJn+G5a5DpFVVP8wd4MksO5ewaq7TL+Jjd4ZVM3eAp1I2nSL9ATLdrboTrJrX3DItFz1LeFjEuWM8jXLTl2BV384d5En86hPpQaZ3mWVannpFeri5Zb5+l/78DjJ9nDvME7jqF+mBzXbuOCdT7geI9CDT3dyBTgcSpB9dpN1roKxoLiHFm6wZltd2NqvFHmT6a+5QJwJlRXO3hQOkeUq6iLftDOvb8gL76z5nhlT71stFIZnmtGvW7cX6c0MrsNc0lxkXsUDt+/eWfQU1cUq7ZgtlxUGkfJWrr+YOdwJQVvyrdlGmCV1Fqn3fHAuSacI6mLbMtzQKXGsS2jUvcNy/WTJ0Ic/nKtLD9r5OuJvOGu4EcMN8/+1PkCks038hUjsqm11DOXxYJerWrJYzxjuBnieNZJrLrqHa98NuiTJNZddsqaz4uJWgTDO5ikuoAT8fB3Stecyz11BZ8flIJ4Mjk11DLbUv5x3KNI+rSC21r3MlpOM0riKVFV/Lo9wypZZaq8QFmyqPq0gttbZNQXeCJK4itdTaVhNPoSTJECIHHwZlmsNVxJZae3HWJNMUriLeOSFylGkOV5HqBjILaZYohauIk3q0NCjTBHYNHeX8eOG4VAK7hib16t22tNnSbprArqGwqw0Dfxl/CKx3Uq+P8OY3bR+jaIIPgVHtOzLD4K4itdRGEtxV7B0n7Se2qzhoUq+P0K4itdRGE9qugZbaeCLbNdRSm0Bku+Yc+YW2a6jzOYG4dk3nW2pjiDsEdp4lDCzT7rfURhDVrqGW2lRiZkgttcN69EEfWsW0a7CsaJ4uusEjNOYQGNe+e/IvPoGLGNKuwbKif8/gIyaiXcNvqdX9+z5eEyK6ivyW2pCzmz4XUab4ltqQ+xdf1+PJlGvfQb0klmk4V5HfUtsPKde3+NE6ml2Dte+wIuGITIO5ivyW2sAbND/CwewaPrcHVkHs7gQbAsOyYmgle+QoDTUEhtMxw8s8fh96EylD/ucXgx0lvi2EchWxpTbcbmGZRnIVuawY4UVwMyCQq8gttREBFmqWBrJruKU2RmRHviGMq1j2q7rN85iNYv0M31DHma5ZImf4ju8JV0RERERERERERERERERERERERERERERERERERERE5Lv5DQUnKU9DzdC7AAAAAElFTkSuQmCC"
+								 alt="avatar">
+							<span class="ml-2 name-avatar" style="color: black">
+								khoa nguyen
+							</span>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdown-user"
+							 style="z-index: 10;">
+							<a class="dropdown-item" href="/user/profile">Thong tin ca nhan</a>
+							<a class="dropdown-item" href="/user/order">Don hang</a>
+							<form action="/auth/logout" method="GET">
+								<button class="dropdown-item" type="submit">Dang xuat</button>
+							</form>
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -95,29 +102,27 @@
 
 					<div class="block-7">
 						<h3 class="footer-heading mb-4">About Us</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio
-							voluptates
-							sed dolorum excepturi iure eaque, aut unde.</p>
+						<p>He thong tiem chung An Binh chinh thuc di vao hoat dong tu thang 6 nam 2017.
+							He thong tiem chung gom 3 trung tam dat tren dia ban thanh pho HCM, nham phuc
+							vu nhu cau tiem chung cua nguoi lon va tre em.</p>
 					</div>
 
 				</div>
 				<div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-					<h3 class="footer-heading mb-4">Quick Links</h3>
+					<h3 class="footer-heading mb-4">Lien ket</h3>
 					<ul class="list-unstyled">
-						<li><a href="#">Supplements</a></li>
-						<li><a href="#">Vitamins</a></li>
-						<li><a href="#">Diet &amp; Nutrition</a></li>
-						<li><a href="#">Tea &amp; Coffee</a></li>
+						<li><a href="https://shopthuoc.vn/">Thuoc</a></li>
+						<li><a href="https://www.vitaminhouse.vn/">Vitamins</a></li>
 					</ul>
 				</div>
 
 				<div class="col-md-6 col-lg-3">
 					<div class="block-5 mb-5">
-						<h3 class="footer-heading mb-4">Contact Info</h3>
+						<h3 class="footer-heading mb-4">Thong tin lien he</h3>
 						<ul class="list-unstyled">
-							<li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
-							<li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-							<li class="email">emailaddress@domain.com</li>
+							<li class="address">227 Nguyen Van Cu, Quan 1, Thanh pho Ho Chi Minh</li>
+							<li class="phone"><a href="tel://23923929210">08530525532</a></li>
+							<li class="email">tiemchunganbinh@gmail.com</li>
 						</ul>
 					</div>
 				</div>
