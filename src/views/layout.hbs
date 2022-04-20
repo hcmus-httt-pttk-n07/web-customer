@@ -6,22 +6,22 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet" type="text/css">
 	<link rel="stylesheet"
-		  href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-	<link rel="stylesheet" href="/vendors/icomoon/icomoon.css">
-	<link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/vendors/magnific-popup.css">
-	<link rel="stylesheet" href="/vendors/jquery/jquery-ui.css">
-	<link rel="stylesheet" href="/vendors/owl/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/vendors/owl/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="/vendors/aos/aos.css">
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/signin_style.css">
-	<link rel="stylesheet" href="/css/signup_style.css">
-	<link rel="stylesheet" href="/css/layout_style.css">
+		  href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/css">
+	<link rel="stylesheet" href="/vendors/icomoon/icomoon.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/magnific-popup.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/jquery/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/owl/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/owl/css/owl.theme.default.min.css" type="text/css">
+	<link rel="stylesheet" href="/vendors/aos/aos.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/css/signin_style.css" type="text/css">
+	<link rel="stylesheet" href="/css/signup_style.css" type="text/css">
+	<link rel="stylesheet" href="/css/layout_style.css" type="text/css">
 
 </head>
 
@@ -61,19 +61,19 @@
 					<div class="icons">
 						<a href="/cart/buy" class="icons-btn d-inline-block bag">
 							<span class="icon-shopping-bag"></span>
-							<span class="number">2</span>
 						</a>
 						<a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
 								class="icon-menu"></span></a>
 					</div>
+					{{#if user}}
 					<div class="dropdown">
 						<button class="dropdown-avatar dropdown-toggle d-flex align-items-center" type="button"
 								id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<img class="avatar rounded float-left"
-								 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAUVBMVEVjo/INTqMASJ5nqPdhofE/e8wARZtdneweW68GS6Boqfg1cMFTkeFXluVcnOswa70XVqpHhNQmYrQRUaYxbb5NitpFgdE8d8gAQJhUkuEpZbcB6W3KAAADz0lEQVR4nO2c61LiQBBGSQaBoIsXvL//gy67a7lqDrmBlW7rnJ8qVHfNl5nprzsuFiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi0ma3Ps7csZ2Fh+fVUeoyd3RnoFw31VFWL3OHdw7q4wlWzf0PWMSHrgyrJn+G5a5DpFVVP8wd4MksO5ewaq7TL+Jjd4ZVM3eAp1I2nSL9ATLdrboTrJrX3DItFz1LeFjEuWM8jXLTl2BV384d5En86hPpQaZ3mWVannpFeri5Zb5+l/78DjJ9nDvME7jqF+mBzXbuOCdT7geI9CDT3dyBTgcSpB9dpN1roKxoLiHFm6wZltd2NqvFHmT6a+5QJwJlRXO3hQOkeUq6iLftDOvb8gL76z5nhlT71stFIZnmtGvW7cX6c0MrsNc0lxkXsUDt+/eWfQU1cUq7ZgtlxUGkfJWrr+YOdwJQVvyrdlGmCV1Fqn3fHAuSacI6mLbMtzQKXGsS2jUvcNy/WTJ0Ic/nKtLD9r5OuJvOGu4EcMN8/+1PkCks038hUjsqm11DOXxYJerWrJYzxjuBnieNZJrLrqHa98NuiTJNZddsqaz4uJWgTDO5ikuoAT8fB3Stecyz11BZ8flIJ4Mjk11DLbUv5x3KNI+rSC21r3MlpOM0riKVFV/Lo9wypZZaq8QFmyqPq0gttbZNQXeCJK4itdTaVhNPoSTJECIHHwZlmsNVxJZae3HWJNMUriLeOSFylGkOV5HqBjILaZYohauIk3q0NCjTBHYNHeX8eOG4VAK7hib16t22tNnSbprArqGwqw0Dfxl/CKx3Uq+P8OY3bR+jaIIPgVHtOzLD4K4itdRGEtxV7B0n7Se2qzhoUq+P0K4itdRGE9qugZbaeCLbNdRSm0Bku+Yc+YW2a6jzOYG4dk3nW2pjiDsEdp4lDCzT7rfURhDVrqGW2lRiZkgttcN69EEfWsW0a7CsaJ4uusEjNOYQGNe+e/IvPoGLGNKuwbKif8/gIyaiXcNvqdX9+z5eEyK6ivyW2pCzmz4XUab4ltqQ+xdf1+PJlGvfQb0klmk4V5HfUtsPKde3+NE6ml2Dte+wIuGITIO5ivyW2sAbND/CwewaPrcHVkHs7gQbAsOyYmgle+QoDTUEhtMxw8s8fh96EylD/ucXgx0lvi2EchWxpTbcbmGZRnIVuawY4UVwMyCQq8gttREBFmqWBrJruKU2RmRHviGMq1j2q7rN85iNYv0M31DHma5ZImf4ju8JV0RERERERERERERERERERERERERERERERERERERE5Lv5DQUnKU9DzdC7AAAAAElFTkSuQmCC"
+								 src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-black-default-avatar-png-image_5407174.jpg"
 								 alt="avatar">
 							<span class="ml-2 name-avatar" style="color: black">
-								khoa nguyen
+								{{user.HoTen}}
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdown-user"
@@ -85,6 +85,9 @@
 							</form>
 						</div>
 					</div>
+					{{else}}
+						<a href="/auth/login">Dang nhap</a>
+					{{/if}}
 				</div>
 
 			</div>

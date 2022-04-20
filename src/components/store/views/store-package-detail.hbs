@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12 mb-0"><a href="/">Trang Chu</a> <span class="mx-2 mb-0">/</span> <a
 					href="/store">Cua Hang</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">
-				{{vaccine.TenVCine}}
+				{{packages.TenGoi}}
 			</strong></div>
 		</div>
 	</div>
@@ -14,16 +14,16 @@
 		<div class="row">
 			<div class="col-md-5 mr-auto">
 				<div class="border text-center">
-					<img src="{{vaccine.HinhAnh}}" alt="Image" class="img-fluid p-5">
+					<img src="{{packages.HinhAnh}}" alt="Image" class="img-fluid p-5">
 				</div>
 			</div>
 			<div class="col-md-6">
-				<h2 class="text-black">{{vaccine.TenVCine}}</h2>
-				<p>{{vaccine.MoTa}}</p>
+				<h2 class="text-black">{{packages.TenGoi}}</h2>
+				<p>{{packages.MoTa}}</p>
 
 
 				<p>
-					<strong class="text-primary h4">{{vaccine.Gia}}$</strong></p>
+					<strong class="text-primary h4">{{packages.Gia}}$</strong></p>
 
 
 				<div class="mb-5">
@@ -43,56 +43,26 @@
 					Hang</a></p>
 
 				<div class="mt-5">
-					<ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-							   role="tab"
-							   aria-controls="pills-home" aria-selected="true">Thong Tin San Pham</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-							   role="tab"
-							   aria-controls="pills-profile" aria-selected="false">Thong So</a>
-						</li>
-
-					</ul>
 					<div class="tab-content" id="pills-tabContent">
 						<div class="tab-pane fade show active" id="pills-home" role="tabpanel"
 							 aria-labelledby="pills-home-tab">
 							<table class="table custom-table">
 								<thead>
-								<th>Vat Chat</th>
+								<th>Ten Vaccine</th>
 								<th>Mo Ta</th>
-								<th>BaoBi</th>
+								<th>Ngay Dem Nguoc</th>
 								</thead>
 								<tbody>
-								{{#each vaccine.ThongTin}}
+								{{#each packages.Vaccine}}
 									<tr>
-										<th scope="row">{{this.VatChat}}</th>
+										<th scope="row">{{this.TenVaccine}}</th>
 										<td>{{this.MoTa}}</td>
-										<td>{{this.BaoBi}}</td>
+										<td>{{this.NgayDemNguoc}}</td>
 									</tr>
 								{{/each}}
 								</tbody>
 							</table>
 						</div>
-						<div class="tab-pane fade" id="pills-profile" role="tabpanel"
-							 aria-labelledby="pills-profile-tab">
-
-							<table class="table custom-table">
-
-								<tbody>
-								{{#each vaccine.ThongSo}}
-									<tr>
-										<td>{{this.TenThongSo}}</td>
-										<td class="bg-light">{{this.GiaTri}}</td>
-									</tr>
-								{{/each}}
-								</tbody>
-							</table>
-
-						</div>
-
 					</div>
 				</div>
 			</div>

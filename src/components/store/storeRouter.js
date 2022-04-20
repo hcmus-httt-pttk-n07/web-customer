@@ -1,11 +1,8 @@
 const router = require('express').Router();
 const storeController = require('./storeController');
 
-/*************************** GET methods ***************************/
-//render store page
 router.get("/", storeController.renderStore);
-
-//render product-detail page
-router.get("/detail", storeController.renderDetail);
+router.get("/vaccine/:id", storeController.renderDetail);
+router.get("/vaccine-package/:id", storeController.renderPackageDetail);
 
 module.exports = router;

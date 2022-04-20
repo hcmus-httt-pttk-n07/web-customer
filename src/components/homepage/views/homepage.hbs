@@ -6,7 +6,7 @@
 					<h2 class="sub-title">Vaccine hieu qua, vaccine an toan</h2>
 					<h1>chao mung ban den voi an binh</h1>
 					<p>
-						<a href="#" class="btn btn-primary px-5 py-3">mua sam ngay</a>
+						<a href="/store" class="btn btn-primary px-5 py-3">mua sam ngay</a>
 					</p>
 				</div>
 			</div>
@@ -52,41 +52,15 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-				<span class="tag">Sale</span>
-				<a href="/store/detail"> <img src="/img/product_01.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">Bioderma</a></h3>
-				<p class="price"><del>95.00</del> &mdash; $55.00</p>
-			</div>
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-				<a href="/store/detail"> <img src="/img/product_02.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">Chanca Piedra</a></h3>
-				<p class="price">$70.00</p>
-			</div>
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-				<a href="/store/detail"> <img src="/img/product_03.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">Umcka Cold Care</a></h3>
-				<p class="price">$120.00</p>
-			</div>
-
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-
-				<a href="/store/detail"> <img src="/img/product_04.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">Cetyl Pure</a></h3>
-				<p class="price"><del>45.00</del> &mdash; $20.00</p>
-			</div>
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-				<a href="/store/detail"> <img src="/img/product_05.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">CLA Core</a></h3>
-				<p class="price">$38.00</p>
-			</div>
-			<div class="col-sm-6 col-lg-4 text-center item mb-4">
-				<span class="tag">Sale</span>
-				<a href="/store/detail"> <img src="/img/product_06.png" alt="Image"></a>
-				<h3 class="text-dark"><a href="/store/detail">Poo Pourri</a></h3>
-				<p class="price"><del>$89</del> &mdash; $38.00</p>
-			</div>
+			{{#each vaccine}}
+				<div class="col-sm-6 col-lg-4 text-center item mb-4">
+					<a href="/store/vaccine/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image"></a>
+					<h3 class="text-dark"><a href="/store/detail">{{this.TenVCine}}</a></h3>
+					<p class="price">{{this.Gia}}</p>
+				</div>
+			{{/each}}
 		</div>
+
 		<div class="row mt-5">
 			<div class="col-12 text-center">
 				<a href="/store" class="btn btn-primary px-4 py-3">Xem tat ca san pham</a>
@@ -106,31 +80,13 @@
 		<div class="row">
 			<div class="col-md-12 block-3 products-wrap">
 				<div class="nonloop-block-3 owl-carousel">
-
-					<div class="text-center item mb-4">
-						<a href="/store/detail"> <img src="/img/product_03.png" alt="Image"></a>
-						<h3 class="text-dark"><a href="/store/detail">Umcka Cold Care</a></h3>
-						<p class="price">$120.00</p>
-					</div>
-
-					<div class="text-center item mb-4">
-						<a href="/store/detail"> <img src="/img/product_01.png" alt="Image"></a>
-						<h3 class="text-dark"><a href="/store/detail">Umcka Cold Care</a></h3>
-						<p class="price">$120.00</p>
-					</div>
-
-					<div class="text-center item mb-4">
-						<a href="/store/detail"> <img src="/img/product_02.png" alt="Image"></a>
-						<h3 class="text-dark"><a href="/store/detail">Umcka Cold Care</a></h3>
-						<p class="price">$120.00</p>
-					</div>
-
-					<div class="text-center item mb-4">
-						<a href="/store/detail"> <img src="/img/product_04.png" alt="Image"></a>
-						<h3 class="text-dark"><a href="/store/detail">Umcka Cold Care</a></h3>
-						<p class="price">$120.00</p>
-					</div>
-
+					{{#each vaccinePackage}}
+						<div class="text-center item mb-4">
+							<a href="/store/vaccine-package/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image"></a>
+							<h3 class="text-dark"><a href="/store/detail">{{this.TenGoi}}</a></h3>
+							<p class="price">{{this.Gia}}</p>
+						</div>
+					{{/each}}
 				</div>
 			</div>
 		</div>
@@ -206,7 +162,8 @@
 				<a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/img/bg_2.jpg');">
 					<div class="banner-1-inner ml-auto  align-self-center">
 						<h2>Chuyen Gia</h2>
-						<p>Cac Vaccine cua chung toi luon dam bao an toan va duoc phe chuan boi cac chuyen gia hang dau Viet Nam
+						<p>Cac Vaccine cua chung toi luon dam bao an toan va duoc phe chuan boi cac chuyen gia hang dau
+							Viet Nam
 						</p>
 					</div>
 				</a>

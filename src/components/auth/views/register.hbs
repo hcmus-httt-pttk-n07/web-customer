@@ -7,28 +7,31 @@
 				<form method="POST" class="register-form" id="register-form">
 					<div class="form-group">
 						<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-						<input type="text" name="name" id="name" placeholder="Ten dang nhap"/>
+						<input type="text" name="Username" placeholder="Ten dang nhap"/>
 					</div>
 					<div class="form-group">
-						<label for="email"><i class="zmdi zmdi-email"></i></label>
-						<input type="email" name="email" id="email" placeholder="Email"/>
+						<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+						<input type="text" name="HoTen" placeholder="Ho va Ten"/>
 					</div>
 					<div class="form-group">
 						<label for="pass"><i class="zmdi zmdi-lock"></i></label>
-						<input type="password" name="pass" id="pass" placeholder="Mat khau"/>
+						<input type="password" name="Password" placeholder="Mat khau"/>
 					</div>
-					<div class="form-group">
-						<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-						<input type="password" name="re_pass" id="re_pass" placeholder="Xac nhan mat khau"/>
-					</div>
+					{{#if message}}
+						{{#if state}}
+							<p style="color: green;">{{message}}</p>
+						{{else}}
+							<p style="color: red;">{{message}}</p>
+						{{/if}}
+					{{/if}}
 					<div class="form-group form-button">
-						<input type="submit" name="signup" id="signup" class="form-submit" value="Dang ky"/>
+						<input type="submit" value="Dang Ky" class="form-submit"/>
 					</div>
 				</form>
 			</div>
 			<div class="signup-image">
 				<figure><img src="/img/signup-image.jpg" alt="sing up image"></figure>
-				<a href="/auth/login" class="signup-image-link">I am already member</a>
+				<a href="/auth/login" class="signup-image-link">Da co tai khoan</a>
 			</div>
 		</div>
 	</div>
