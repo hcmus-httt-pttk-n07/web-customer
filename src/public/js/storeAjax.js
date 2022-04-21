@@ -6,7 +6,8 @@ function getVaccine(page) {
         data.result.data.forEach(function (item){
             $('#vaccine').append(`
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                    <a href="/store/vaccine/${item._id}"> <img src="${item.HinhAnh}" alt="Image"></a>
+                    <a href="/store/vaccine/${item._id}"> <img width="240"
+						height="240" src="${item.HinhAnh}" alt="Image"></a>
                     <h3 class="text-dark"><a href="/store/detail">${item.TenVCine}</a></h3>
                     <p class="price">
                         ${item.Gia}

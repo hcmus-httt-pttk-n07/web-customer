@@ -53,11 +53,12 @@
 
 		<div class="row">
 			{{#each vaccine}}
-				<div class="col-sm-6 col-lg-4 text-center item mb-4">
-					<a href="/store/vaccine/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image"></a>
-					<h3 class="text-dark"><a href="/store/detail">{{this.TenVCine}}</a></h3>
-					<p class="price">{{this.Gia}}</p>
-				</div>
+			<div class="col-sm-6 col-lg-4 text-center item mb-4">
+				<a href="/store/vaccine/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image" width="240"
+						height="240"></a>
+				<h3 class="text-dark"><a href="/store/detail">{{this.TenVCine}}</a></h3>
+				<p class="price">{{this.Gia}}</p>
+			</div>
 			{{/each}}
 		</div>
 
@@ -81,11 +82,11 @@
 			<div class="col-md-12 block-3 products-wrap">
 				<div class="nonloop-block-3 owl-carousel">
 					{{#each vaccinePackage}}
-						<div class="text-center item mb-4">
-							<a href="/store/vaccine-package/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image"></a>
-							<h3 class="text-dark"><a href="/store/detail">{{this.TenGoi}}</a></h3>
-							<p class="price">{{this.Gia}}</p>
-						</div>
+					<div class="text-center item mb-4">
+						<a href="/store/vaccine-package/{{this._id}}"> <img src="{{this.HinhAnh}}" alt="Image"></a>
+						<h3 class="text-dark"><a href="/store/detail">{{this.TenGoi}}</a></h3>
+						<p class="price">{{this.Gia}}</p>
+					</div>
 					{{/each}}
 				</div>
 			</div>
@@ -135,7 +136,8 @@
 					<div class="testimony">
 						<blockquote>
 							<img src="/img/person_4.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
-							<p>&ldquo;He thong tiem chung An Binh cung cap vaccine tot nhat cho cac benh nhan trong nam&rdquo;</p>
+							<p>&ldquo;He thong tiem chung An Binh cung cap vaccine tot nhat cho cac benh nhan trong
+								nam&rdquo;</p>
 						</blockquote>
 
 						<p>&mdash; Khoa Phung</p>
