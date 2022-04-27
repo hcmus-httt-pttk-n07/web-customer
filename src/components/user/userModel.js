@@ -25,6 +25,7 @@ const KhachHang = new Schema({
             HinhAnh: String,
             SoLuong: Number,
             NgayTiem: Date,
+            TongTien: Number
         }
     ],
     CartPackage: [
@@ -35,7 +36,8 @@ const KhachHang = new Schema({
             Gia: Number,
             HinhAnh: String,
             SoLuong: Number,
-            NgayTiem: Date
+            NgayTiem: Date,
+            TongTien: Number
         }
     ]
 }, {

@@ -136,7 +136,7 @@ function addPackageToCart() {
 }
 
 function checkQuantity() {
-    if ($('#quantity').val() < 1)
+    if ($('#quantity').val() <= 1)
         $('#quantity').val(1);
 }
 

@@ -49,80 +49,152 @@
 									<div class="card-block">
 										<h6 class="m-b-20 p-b-5 b-b-default f-w-600 profile-header-section">Thong Tin Ca Nhan</h6>
 										<div class="row">
-											<div class="col-sm-6">
+											<div class="col-sm-6 HoTen">
 												<p class="m-b-10 f-w-600 profile-header-field">Ho Va Ten</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="fullname">{{user.HoTen}}</h6>
+													<h6 class="text-muted f-w-400" id="HoTen">{{user.HoTen}}</h6>
 													<i class="fa-solid fa-pen-to-square"
-													   onclick="showForm('fullname')"></i>
+													   onclick="showForm('HoTen')"></i>
 												</div>
 												<form method="post" class="edit-form" style="display: none">
 													<div class="container edit-form">
-														<input class="edit-input" type="text" name="fullname">
+														<input class="edit-input" type="text" name="HoTen">
 														<input type="submit" value="Apply" class="sub-btn"
-															   onclick="edit('fullname')">
+															   onclick="edit('HoTen')">
 													</div>
 												</form>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-6 NgaySinh">
 												<p class="m-b-10 f-w-600 profile-header-field">Ngay Sinh</p>
-												<div class="current-info">
-													<h6 class="text-muted f-w-400" id="role"> {{user.NgaySinh}}</h6>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="NgaySinh"> {{user.NgaySinh}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('NgaySinh')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="NgaySinh">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('NgaySinh')">
+													</div>
+												</form>
 											</div>
 										</div>
 										<br>
 										<div class="row">
-											<div class="col-sm-6">
+											<div class="col-sm-6 QuocGia">
 												<p class="m-b-10 f-w-600 profile-header-field">Quoc Gia</p>
-												<div class="current-info">
-													<h6 class="text-muted f-w-400" id="profile-username">{{user.QuocGia}}</h6>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="QuocGia">{{user.QuocGia}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('QuocGia')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="QuocGia">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('QuocGia')">
+													</div>
+												</form>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-6 SDT">
 												<p class="m-b-10 f-w-600 profile-header-field">So Dien Thoai</p>
-												<div class="current-info">
-													<h6 class="text-muted f-w-400" id="employed">{{user.SDT}}</h6>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="SDT">{{user.SDT}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('SDT')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="SDT">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('SDT')">
+													</div>
+												</form>
 											</div>
 										</div>
 										<br>
 										<div class="row">
-											<div class="col-sm-6 intro">
+											<div class="col-sm-6 Email">
 												<p class="m-b-10 f-w-600 profile-header-field">Email</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="intro">{{user.Email}}</h6>
+													<h6 class="text-muted f-w-400" id="Email">{{user.Email}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('Email')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="Email">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('Email')">
+													</div>
+												</form>
 											</div>
-											<div class="col-sm-6 phone">
+											<div class="col-sm-6 GioiThieu">
 												<p class="m-b-10 f-w-600 profile-header-field">Gioi Thieu</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="phone">{{user.GioiThieu}}</h6>
+													<h6 class="text-muted f-w-400" id="GioiThieu">{{user.GioiThieu}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('GioiThieu')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="GioiThieu">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('GioiThieu')">
+													</div>
+												</form>
 											</div>
 										</div>
 										<br>
 										<div class="row">
-											<div class="col-sm-6 phone">
+											<div class="col-sm-6 STK">
 												<p class="m-b-10 f-w-600 profile-header-field">STK</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="phone">{{user.STK}}</h6>
+													<h6 class="text-muted f-w-400" id="STK">{{user.STK}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('STK')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="STK">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('STK')">
+													</div>
+												</form>
 											</div>
-											<div class="col-sm-6 phone">
+											<div class="col-sm-6 Paypal">
 												<p class="m-b-10 f-w-600 profile-header-field">Paypal</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="phone">{{user.Paypal}}</h6>
+													<h6 class="text-muted f-w-400" id="Paypal">{{user.Paypal}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('Paypal')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="Paypal">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('Paypal')">
+													</div>
+												</form>
 											</div>
 										</div>
 										<br>
 										<div class="row mt-2">
-											<div class="col-sm-6 address">
+											<div class="col-sm-6 DiaChi">
 												<p class="m-b-10 f-w-600 profile-header-field">Dia Chi</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="phone"> {{user.DiaChi}}</h6>
+													<h6 class="text-muted f-w-400" id="DiaChi"> {{user.DiaChi}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('DiaChi')"></i>
 												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="DiaChi">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('DiaChi')">
+													</div>
+												</form>
 											</div>
 										</div>
 
@@ -152,3 +224,5 @@
 		</div>
 	</div>
 </section>
+
+<script src="/js/userAjax.js"></script>

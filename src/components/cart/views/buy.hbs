@@ -26,59 +26,61 @@
 						</tr>
 						</thead>
 						<tbody>
+						{{#each CartVaccine}}
 						<tr>
 							<td class="product-thumbnail">
-								<img src="/img/product_02.png" alt="Image" class="img-fluid">
+								<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
 							</td>
 							<td class="product-name">
-								<h2 class="h5 text-black">Ibuprofen</h2>
+								<h2 class="h5 text-black">{{this.TenVcine}}</h2>
 							</td>
-							<td>$55.00</td>
-							<td>
-								<div class="input-group mb-3" style="max-width: 120px;">
+							<td>${{this.Gia}}</td>
+							<td style="justify-content: center;">
+								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
 										</button>
 									</div>
-									<input type="text" class="form-control text-center" value="1" placeholder=""
-										   aria-label="Example text with button addon" aria-describedby="button-addon1">
+									<input type="text" class="form-control text-center" value="{{this.SoLuong}}" placeholder="" style="width: 10px;"
+										   aria-label="Example text with button addon" aria-describedby="button-addon1" onkeyup="">
 									<div class="input-group-append">
 										<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
 										</button>
 									</div>
 								</div>
-
 							</td>
-							<td>$49.00</td>
-							<td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+							<td>${{this.TongTien}}</td>
+							<td><a href="/cart/delete?id={{this._id}}&type=CartVaccine" class="btn btn-primary height-auto btn-sm">X</a></td>
 						</tr>
-
-						<tr>
-							<td class="product-thumbnail">
-								<img src="/img/product_01.png" alt="Image" class="img-fluid">
-							</td>
-							<td class="product-name">
-								<h2 class="h5 text-black">Bioderma</h2>
-							</td>
-							<td>$49.00</td>
-							<td>
-								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
-										</button>
+						{{/each}}
+						{{#each CartPackage}}
+							<tr>
+								<td class="product-thumbnail">
+									<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
+								</td>
+								<td class="product-name">
+									<h2 class="h5 text-black">{{this.TenGoi}}</h2>
+								</td>
+								<td>{{this.Gia}}</td>
+								<td style="justify-content: center;">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
+											</button>
+										</div>
+										<input type="text" class="form-control text-center" value="{{this.SoLuong}}" placeholder="" style="width: 10px;"
+											   aria-label="Example text with button addon" aria-describedby="button-addon1">
+										<div class="input-group-append">
+											<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
+											</button>
+										</div>
 									</div>
-									<input type="text" class="form-control text-center" value="1" placeholder=""
-										   aria-label="Example text with button addon" aria-describedby="button-addon1">
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
-										</button>
-									</div>
-								</div>
 
-							</td>
-							<td>$49.00</td>
-							<td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
-						</tr>
+								</td>
+								<td>${{this.TongTien}}</td>
+								<td><a href="/cart/delete?id={{this._id}}&type=CartPackage" class="btn btn-primary height-auto btn-sm">X</a></td>
+							</tr>
+						{{/each}}
 						</tbody>
 					</table>
 				</div>
@@ -175,3 +177,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="/js/cartAjax.js"></script>
