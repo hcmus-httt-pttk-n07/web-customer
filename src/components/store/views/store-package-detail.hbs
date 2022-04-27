@@ -29,18 +29,25 @@
 				<div class="mb-5">
 					<div class="input-group mb-3" style="max-width: 220px;">
 						<div class="input-group-prepend">
-							<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+							<button class="btn btn-outline-primary js-btn-minus" type="button" onclick="checkQuantity()">&minus;</button>
 						</div>
-						<input type="text" class="form-control text-center" value="1" placeholder=""
-							   aria-label="Example text with button addon" aria-describedby="button-addon1">
+						<input type="text" class="form-control text-center" value="1" placeholder="" id="quantity"
+							   aria-label="Example text with button addon" aria-describedby="button-addon1" onkeyup="checkQuantity()">
 						<div class="input-group-append">
-							<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+							<button class="btn btn-outline-primary js-btn-plus" type="button" onclick="checkQuantity()">&plus;</button>
 						</div>
 					</div>
 
 				</div>
-				<p><a href="/cart/buy" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Them Vao Gio
-					Hang</a></p>
+
+				<p>
+					<input type="hidden" value="{{packages.TenGoi}}" id="package-name">
+					<input type="hidden" value="{{packages.Gia}}" id="package-price">
+					<input type="hidden" value="{{packages.MoTa}}" id="package-description">
+					<input type="hidden" value="{{packages.HinhAnh}}" id="package-image">
+					<input type="hidden" value="{{packages._id}}" id="package-id">
+					<button  class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" onclick="addPackageToCart()">Them Vao Gio Hang</button>
+				</p>
 
 				<div class="mt-5">
 					<div class="tab-content" id="pills-tabContent">
@@ -55,7 +62,7 @@
 								<tbody>
 								{{#each packages.Vaccine}}
 									<tr>
-										<th scope="row">{{this.TenVaccine}}</th>
+										<th scope="row">{{this.TenVcine}}</th>
 										<td>{{this.MoTa}}</td>
 										<td>{{this.NgayDemNguoc}}</td>
 									</tr>
@@ -94,3 +101,4 @@
 		</div>
 	</div>
 </div>
+<script src="/js/storeAjax.js"></script>

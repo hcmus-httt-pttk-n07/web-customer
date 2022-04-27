@@ -25,3 +25,12 @@ exports.renderPackageDetail = async (req, res) => {
         res.status(500).send({message: e.message});
     }
 };
+
+exports.addToCart = async (req, res) => {
+    try {
+        const packages = await vaccineService.getPackageById(req.params.id);
+        res.render("store/views/store-package-detail",{packages});
+    } catch (e) {
+        res.status(500).send({message: e.message});
+    }
+};

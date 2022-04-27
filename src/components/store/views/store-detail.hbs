@@ -9,6 +9,7 @@
 	</div>
 </div>
 
+
 <div class="site-section">
 	<div class="container">
 		<div class="row">
@@ -21,26 +22,33 @@
 				<h2 class="text-black">{{vaccine.TenVCine}}</h2>
 				<p>{{vaccine.MoTa}}</p>
 
-
-				<p>
-					<strong class="text-primary h4">{{vaccine.Gia}}$</strong></p>
-
-
+				<p><strong class="text-primary h4">{{vaccine.Gia}}$</strong></p>
 				<div class="mb-5">
 					<div class="input-group mb-3" style="max-width: 220px;">
 						<div class="input-group-prepend">
-							<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+							<button class="btn btn-outline-primary js-btn-minus" type="button"
+									onclick="checkQuantity()">&minus;
+							</button>
 						</div>
-						<input type="text" class="form-control text-center" value="1" placeholder=""
-							   aria-label="Example text with button addon" aria-describedby="button-addon1">
+						<input type="text" class="form-control text-center" value="1" placeholder="" id="quantity"
+							   aria-label="Example text with button addon" aria-describedby="button-addon1"
+							   onkeyup="checkQuantity()">
 						<div class="input-group-append">
-							<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+							<button class="btn btn-outline-primary js-btn-plus" type="button"
+									onclick="checkQuantity()">&plus;
+							</button>
 						</div>
 					</div>
 
 				</div>
-				<p><a href="/cart/buy" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Them Vao Gio
-					Hang</a></p>
+				<p>
+					<input type="hidden" value="{{vaccine.TenVCine}}" id="vaccine-name">
+					<input type="hidden" value="{{vaccine.Gia}}" id="vaccine-price">
+					<input type="hidden" value="{{vaccine.MoTa}}" id="vaccine-description">
+					<input type="hidden" value="{{vaccine.HinhAnh}}" id="vaccine-image">
+					<input type="hidden" value="{{vaccine._id}}" id="vaccine-id">
+					<button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" onclick="addVaccineToCart()">Them Vao Gio Hang</button>
+				</p>
 
 				<div class="mt-5">
 					<ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
@@ -124,3 +132,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="/js/storeAjax.js"></script>

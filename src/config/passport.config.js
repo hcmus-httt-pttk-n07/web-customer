@@ -19,7 +19,12 @@ passport.serializeUser(function (user, cb) {
             DiaChi: user.DiaChi,
             SDT: user.SDT,
             Username: user.Username,
-            Password: user.Password,
+            Avatar:  user.Avatar,
+            Email: user.Email,
+            GioiThieu: user.GioiThieu,
+            Paypal: user.Paypal,
+            QuocGia: user.QuocGia,
+            STK: user.STK,
         });
     });
 });

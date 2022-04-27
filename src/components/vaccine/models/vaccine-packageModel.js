@@ -8,10 +8,10 @@ const GoiVaccine = new Schema({
     Gia: Number,
     HinhAnh: String,
     Vaccine:[{
-        TenVaccine: String,
+        _id: String,
+        TenVcine: String,
         MoTa: String,
-        Gia: Number,
-        NgayDemNguoc: Number,
+        NgayDemNguoc: Number
     }]
 }, {
     versionKey: false

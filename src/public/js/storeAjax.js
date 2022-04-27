@@ -1,12 +1,12 @@
 function getVaccine(page) {
-    fetch('/api/store/vaccine?page='+page,{
+    fetch('/api/store/vaccine?page=' + page, {
         method: "GET"
     }).then(r => r.json()).then(data => {
         $('#vaccine').html('');
-        data.result.data.forEach(function (item){
+        data.result.data.forEach(function (item) {
             $('#vaccine').append(`
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                    <a href="/store/vaccine/${item._id}"> <img src="${item.HinhAnh}" alt="Image"></a>
+                    <a href="/store/vaccine/${item._id}"> <img src="${item.HinhAnh}" alt="Image" style="height: 200px"></a>
                     <h3 class="text-dark"><a href="/store/detail">${item.TenVCine}</a></h3>
                     <p class="price">
                         ${item.Gia}
@@ -45,11 +45,11 @@ function getVaccine(page) {
 }
 
 function getVaccinePackage(page) {
-    fetch('/api/store/package?page='+page,{
+    fetch('/api/store/package?page=' + page, {
         method: "GET"
     }).then(r => r.json()).then(data => {
         $('#vaccine-package').html('');
-        data.result.data.forEach(function (item){
+        data.result.data.forEach(function (item) {
             $('#vaccine-package').append(`
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
 					<a href="/store/vaccine-package/${item._id}"> <img src="${item.HinhAnh}" alt="Image" style="height: 200px;width: auto"></a>
@@ -87,6 +87,57 @@ function getVaccinePackage(page) {
             </li>
         `);
     })
+}
+
+function addVaccineToCart() {
+    fetch('/api/store/vaccine', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            _id: $('#vaccine-id').val(),
+            TenVcine: $('#vaccine-name').val(),
+            MoTa: $('#vaccine-description').val(),
+            HinhAnh: $('#vaccine-image').val(),
+            Gia: $('#vaccine-price').val(),
+            SoLuong: $('#quantity').val()
+        })
+    }).then(r => r.json()).then(data => {
+        if (data.success) {
+            alert('Thêm vào giỏ hàng thành công');
+        } else {
+            alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
+        }
+    })
+}
+
+function addPackageToCart() {
+    fetch('/api/store/package', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            _id: $('#package-id').val(),
+            TenGoi: $('#package-name').val(),
+            MoTa: $('#package-description').val(),
+            HinhAnh: $('#package-image').val(),
+            Gia: $('#package-price').val(),
+            SoLuong: $('#quantity').val()
+        })
+    }).then(r => r.json()).then(data => {
+        if (data.success) {
+            alert('Thêm vào giỏ hàng thành công');
+        } else {
+            alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
+        }
+    })
+}
+
+function checkQuantity() {
+    if ($('#quantity').val() < 1)
+        $('#quantity').val(1);
 }
 
 window.onload = function () {

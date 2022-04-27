@@ -1,0 +1,154 @@
+<section class="profile" style="color:#000;">
+	<div class="container">
+		<div class="page-content page-container" id="page-content">
+			<div class="padding">
+				<div class="row container d-flex justify-content-center">
+					<div class="col-xl-12 col-md-12">
+						<div class="card user-card-full">
+							<div class="row mx-0" style="height: 500px;">
+								<div class="col-sm-4 p-0" id="img-container">
+									<img src="{{user.Avatar}}" style="width: 400px; height: 400px" class="img-radius mb-4" alt="User-Profile-Image">
+									<div class="mx-auto w-75 mb-3">
+										<button type="button" class="btn btn-primary px-4 w-100" style="height:50px;"
+												data-toggle="modal" data-target="#modalChangeAvatar">
+											Doi Anh Dai Dien
+										</button>
+									</div>
+									<form action="/user/profile" method="POST" id="change-avatar-form"
+										  enctype="multipart/form-data">
+										<div class="modal fade" id="modalChangeAvatar" tabindex="-1"
+											 aria-labelledby="modalChangeAvatar" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel"> Doi Anh Dai Dien
+														</h5>
+													</div>
+													<div class="modal-body">
+														<b>Anh Dai Dien:</b>
+														<input type="file" id="input-product-image"
+															   class="form-control p-0 pt-1" name="avatar_url"
+															   accept=".jpg,.jpeg,.png">
+														<div class="w-100 d-flex flex-row justify-content-end mt-3">
+															<button type="reset" id="cancle-btn"
+																	class="btn btn-secondary me-2" data-dismiss="modal"
+																	aria-label="Close">Huy
+															</button>
+															<button type="submit" id="submit-img-btn"
+																	class="ml-2 btn btn-primary">
+																Xac Nhan
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="col-sm-8">
+									<div class="card-block">
+										<h6 class="m-b-20 p-b-5 b-b-default f-w-600 profile-header-section">Thong Tin Ca Nhan</h6>
+										<div class="row">
+											<div class="col-sm-6">
+												<p class="m-b-10 f-w-600 profile-header-field">Ho Va Ten</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="fullname">{{user.HoTen}}</h6>
+													<i class="fa-solid fa-pen-to-square"
+													   onclick="showForm('fullname')"></i>
+												</div>
+												<form method="post" class="edit-form" style="display: none">
+													<div class="container edit-form">
+														<input class="edit-input" type="text" name="fullname">
+														<input type="submit" value="Apply" class="sub-btn"
+															   onclick="edit('fullname')">
+													</div>
+												</form>
+											</div>
+											<div class="col-sm-6">
+												<p class="m-b-10 f-w-600 profile-header-field">Ngay Sinh</p>
+												<div class="current-info">
+													<h6 class="text-muted f-w-400" id="role"> {{user.NgaySinh}}</h6>
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="row">
+											<div class="col-sm-6">
+												<p class="m-b-10 f-w-600 profile-header-field">Quoc Gia</p>
+												<div class="current-info">
+													<h6 class="text-muted f-w-400" id="profile-username">{{user.QuocGia}}</h6>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<p class="m-b-10 f-w-600 profile-header-field">So Dien Thoai</p>
+												<div class="current-info">
+													<h6 class="text-muted f-w-400" id="employed">{{user.SDT}}</h6>
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="row">
+											<div class="col-sm-6 intro">
+												<p class="m-b-10 f-w-600 profile-header-field">Email</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="intro">{{user.Email}}</h6>
+												</div>
+											</div>
+											<div class="col-sm-6 phone">
+												<p class="m-b-10 f-w-600 profile-header-field">Gioi Thieu</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="phone">{{user.GioiThieu}}</h6>
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="row">
+											<div class="col-sm-6 phone">
+												<p class="m-b-10 f-w-600 profile-header-field">STK</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="phone">{{user.STK}}</h6>
+												</div>
+											</div>
+											<div class="col-sm-6 phone">
+												<p class="m-b-10 f-w-600 profile-header-field">Paypal</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="phone">{{user.Paypal}}</h6>
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="row mt-2">
+											<div class="col-sm-6 address">
+												<p class="m-b-10 f-w-600 profile-header-field">Dia Chi</p>
+												<div class="current-info" style="display: flex; flex-direction: row;">
+													<h6 class="text-muted f-w-400" id="phone"> {{user.DiaChi}}</h6>
+												</div>
+											</div>
+										</div>
+
+
+										<ul class="social-link list-unstyled m-t-40 m-b-10">
+											<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+												   data-original-title="facebook" data-abc="true"><i
+													class="mdi mdi-facebook feather icon-facebook facebook"
+													aria-hidden="true"></i></a></li>
+											<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+												   data-original-title="twitter" data-abc="true"><i
+													class="mdi mdi-twitter feather icon-twitter twitter"
+													aria-hidden="true"></i></a></li>
+											<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+												   data-original-title="instagram" data-abc="true"><i
+													class="mdi mdi-instagram feather icon-instagram instagram"
+													aria-hidden="true"></i></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
