@@ -7,7 +7,7 @@ function getVaccine(page) {
             $('#vaccine').append(`
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
                     <a href="/store/vaccine/${item._id}"> <img src="${item.HinhAnh}" alt="Image" style="height: 200px"></a>
-                    <h3 class="text-dark"><a href="/store/detail">${item.TenVCine}</a></h3>
+                    <h3 class="text-dark"><a href="/store/vaccine/${item._id}">${item.TenVCine}</a></h3>
                     <p class="price">
                         ${item.Gia}
                     </p>
@@ -53,7 +53,7 @@ function getVaccinePackage(page) {
             $('#vaccine-package').append(`
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
 					<a href="/store/vaccine-package/${item._id}"> <img src="${item.HinhAnh}" alt="Image" style="height: 200px;width: auto"></a>
-					<h3 class="text-dark"><a href="/store/detail">${item.TenGoi}</a></h3>
+					<h3 class="text-dark"><a href="/store/vaccine-package/${item._id}">${item.TenGoi}</a></h3>
 					<p class="price">
 						${item.Gia}
 					</p>
@@ -133,11 +133,6 @@ function addPackageToCart() {
             alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
         }
     })
-}
-
-function checkQuantity() {
-    if ($('#quantity').val() <= 1)
-        $('#quantity').val(1);
 }
 
 window.onload = function () {

@@ -1,5 +1,6 @@
-const storeController = require("./storeApiController");
 const router = require('express').Router();
+const storeController = require("./storeApiController");
+
 
 router.get("/vaccine", storeController.getVaccine);
 router.get("/package", storeController.getVaccinePackage);

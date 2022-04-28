@@ -27,31 +27,38 @@
 						</thead>
 						<tbody>
 						{{#each CartVaccine}}
-						<tr>
-							<td class="product-thumbnail">
-								<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
-							</td>
-							<td class="product-name">
-								<h2 class="h5 text-black">{{this.TenVcine}}</h2>
-							</td>
-							<td>${{this.Gia}}</td>
-							<td style="justify-content: center;">
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
-										</button>
+							<tr>
+								<td class="product-thumbnail">
+									<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
+								</td>
+								<td class="product-name">
+									<h2 class="h5 text-black">{{this.TenVcine}}</h2>
+								</td>
+								<td>${{this.Gia}}</td>
+								<td style="justify-content: center;">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<button class="btn btn-outline-primary js-btn-minus" type="button"
+													onclick="changeQuantity('-','vaccine','{{this._id}}','{{this.Gia}}')">
+												&minus;
+											</button>
+										</div>
+										<input type="text" class="form-control text-center" value="{{this.SoLuong}}"
+											   placeholder="" style="width: 10px;"
+											   aria-label="Example text with button addon"
+											   aria-describedby="button-addon1" id="idPackage">
+										<div class="input-group-append">
+											<button class="btn btn-outline-primary js-btn-plus" type="button"
+													onclick="changeQuantity('+','vaccine','{{this._id}}','{{this.Gia}}')">
+												&plus;
+											</button>
+										</div>
 									</div>
-									<input type="text" class="form-control text-center" value="{{this.SoLuong}}" placeholder="" style="width: 10px;"
-										   aria-label="Example text with button addon" aria-describedby="button-addon1" onkeyup="">
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
-										</button>
-									</div>
-								</div>
-							</td>
-							<td>${{this.TongTien}}</td>
-							<td><a href="/cart/delete?id={{this._id}}&type=CartVaccine" class="btn btn-primary height-auto btn-sm">X</a></td>
-						</tr>
+								</td>
+								<td id="total-{{this._id}}">${{this.TongTien}}</td>
+								<td><a href="/cart/delete?id={{this._id}}&type=CartVaccine" class="btn btn-primary
+									height-auto btn-sm">X</a></td>
+							</tr>
 						{{/each}}
 						{{#each CartPackage}}
 							<tr>
@@ -65,20 +72,27 @@
 								<td style="justify-content: center;">
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
-											<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
+											<button class="btn btn-outline-primary js-btn-minus" type="button"
+													onclick="changeQuantity('-','package','{{this._id}}','{{this.Gia}}')">
+												&minus;
 											</button>
 										</div>
-										<input type="text" class="form-control text-center" value="{{this.SoLuong}}" placeholder="" style="width: 10px;"
-											   aria-label="Example text with button addon" aria-describedby="button-addon1">
+										<input type="text" class="form-control text-center" value="{{this.SoLuong}}"
+											   placeholder="" style="width: 10px;"
+											   aria-label="Example text with button addon"
+											   aria-describedby="button-addon1" id="idPackage">
 										<div class="input-group-append">
-											<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
+											<button class="btn btn-outline-primary js-btn-plus" type="button"
+													onclick="changeQuantity('+','package','{{this._id}}','{{this.Gia}}')">
+												&plus;
 											</button>
 										</div>
 									</div>
 
 								</td>
-								<td>${{this.TongTien}}</td>
-								<td><a href="/cart/delete?id={{this._id}}&type=CartPackage" class="btn btn-primary height-auto btn-sm">X</a></td>
+								<td id="total-{{this._id}}">${{this.TongTien}}</td>
+								<td><a href="/cart/delete?id={{this._id}}&type=CartPackage" class="btn btn-primary
+									height-auto btn-sm">X</a></td>
 							</tr>
 						{{/each}}
 						</tbody>
@@ -92,13 +106,14 @@
 				<div class="row mb-5">
 					<div class="col-md-6 mb-3 mb-md-0">
 						<form action="/cart/buy" method="get">
-						<button type="submit" class="btn btn-primary btn-md btn-block">Dat mua</button>
+							<button type="submit" class="btn btn-primary btn-md btn-block">Dat mua</button>
 						</form>
 					</div>
 					<div class="col-md-6">
 						<form action="/cart/register" method="get">
-						<button type="submit" class="btn btn-outline-primary btn-md btn-block">Dang ky tiem
-							chung</button>
+							<button type="submit" class="btn btn-outline-primary btn-md btn-block">Dang ky tiem
+								chung
+							</button>
 						</form>
 					</div>
 				</div>
@@ -124,10 +139,10 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<span class="text-black">Tong phu</span>
+								<span class="text-black">Tong san pham</span>
 							</div>
 							<div class="col-md-6 text-right">
-								<strong class="text-black">$230.00</strong>
+								<strong class="text-black" id="quantity">{{quantity}}</strong>
 							</div>
 						</div>
 						<div class="row mb-5">
@@ -135,7 +150,7 @@
 								<span class="text-black">Tong tien</span>
 							</div>
 							<div class="col-md-6 text-right">
-								<strong class="text-black">$230.00</strong>
+								<strong class="text-black" id="total">${{total}}</strong>
 							</div>
 						</div>
 

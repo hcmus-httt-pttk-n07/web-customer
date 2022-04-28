@@ -25,6 +25,8 @@ passport.serializeUser(function (user, cb) {
             Paypal: user.Paypal,
             QuocGia: user.QuocGia,
             STK: user.STK,
+            CartVaccine: user.CartVaccine,
+            CartPackage: user.CartPackage
         });
     });
 });

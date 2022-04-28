@@ -1,6 +1,5 @@
 const vaccineService = require('../../components/vaccine/vaccineService');
 const userService = require('../../components/user/userService');
-
 const pagination = require('../../public/js/pagination');
 
 module.exports.getVaccine = async (req, res) => {

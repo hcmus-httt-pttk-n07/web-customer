@@ -1,22 +1,20 @@
-// function addVaccineToCart() {
-//     fetch('/api/cart/vaccine', {
-//         method: "POST",
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             _id: $('#vaccine-id').val(),
-//             TenVcine: $('#vaccine-name').val(),
-//             MoTa: $('#vaccine-description').val(),
-//             HinhAnh: $('#vaccine-image').val(),
-//             Gia: $('#vaccine-price').val(),
-//             SoLuong: $('#quantity').val()
-//         })
-//     }).then(r => r.json()).then(data => {
-//         if (data.success) {
-//             alert('Thêm vào giỏ hàng thành công');
-//         } else {
-//             alert('Bạn phải đăng nhập để thêm vào giỏ hàng');
-//         }
-//     })
-// }
+function changeQuantity(type, cartType, id, price) {
+    let quantity = $('#idPackage').val();
+    if (type === '+') quantity++;
+    else if (type === '-') quantity--;
+    fetch('/api/cart/' + cartType, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id,
+            quantity: quantity
+        })
+    }).then(r => r.json()).then(data => {
+        const total = '#total-'+ id;
+        $(total).text(Math.round(quantity * price * 100) / 100);
+        $('#quantity').text(data.quantity);
+        $('#total').text(data.total);
+    });
+}
