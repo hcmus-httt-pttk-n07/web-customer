@@ -1,4 +1,3 @@
-
 function showForm(field) {
     const form = $(`.${field} .edit-form`)
     const current_info = $(`.${field} .current-info`)
@@ -17,8 +16,7 @@ function edit(field) {
     showForm(field)
     const url = '/api/user/profile';
     const new_val = $(`.${field} form input[type=text]`).val()
-
-    $.post(url, {field: field, new_val: new_val}, function (data) {
+    $.post(url, {field: field, new_val: new_val}, function () {
         const need_change_element = $(`#${field}`)
         need_change_element.text(new_val)
 
@@ -26,4 +24,19 @@ function edit(field) {
         if (data.status === 401)
             window.location.href = '/auth/login?return=' + window.location.href
     })
+}
+
+function editDate() {
+    const new_val = $('#DNgaySinh').val();
+    fetch('/api/user/profile', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            field: 'NgaySinh',
+            new_val
+        })
+    }).then();
+    $('#NgaySinh').text(new_val)
 }

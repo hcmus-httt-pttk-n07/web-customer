@@ -4,8 +4,8 @@ const cartUtils = require('./cartUtils');
 exports.renderRegister = async (req, res) => {
     try {
         const cart = await cartService.getCart(req.user._id);
-        const total = cartUtils.getTotal(cart.CartVaccine, cart.CartPackage);
-        const quantity = cartUtils.getQuantity(cart.CartVaccine, cart.CartPackage);
+        const total = cartUtils.getTotal2(cart.CartVaccine, cart.CartPackage);
+        const quantity = cartUtils.getQuantity2(cart.CartVaccine, cart.CartPackage);
         res.render("cart/views/register", {
             CartVaccine: cart.CartVaccine,
             CartPackage: cart.CartPackage,

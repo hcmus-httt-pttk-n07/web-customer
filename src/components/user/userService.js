@@ -1,5 +1,6 @@
 const userModel = require('./userModel');
 const cloudinary = require('../../config/cloudinary.config');
+const userUtils = require('./userUtils');
 
 module.exports.login = async (username, password) => {
     try {
@@ -22,7 +23,6 @@ module.exports.register = async (body) => {
         if (user) {
             return null;
         }
-
         body.NgaySinh = '';
         body.GioiTinh = '';
         body.DiaChi = '';
@@ -61,7 +61,7 @@ module.exports.changeAvatar = async (id, file) => {
 
 module.exports.addVaccineToCart = async (id, body) => {
     try {
-        body.NgayTiem = Date.now();
+        body.NgayTiem = userUtils.getDate()
         body.TongTien = Math.round(body.Gia * body.SoLuong * 100) / 100;
         if (body._id) await userModel.findByIdAndUpdate(id, {$pull: {CartVaccine: {_id: body._id}}});
         await userModel.findOneAndUpdate({_id: id}, {$push: {'CartVaccine': body}});
@@ -72,7 +72,7 @@ module.exports.addVaccineToCart = async (id, body) => {
 
 module.exports.addPackageToCart = async (id, body) => {
     try {
-        body.NgayTiem = Date.now();
+        body.NgayTiem = userUtils.getDate()
         body.TongTien = Math.round(body.Gia * body.SoLuong * 100) / 100;
         if (body._id) await userModel.findByIdAndUpdate(id, {$pull: {CartPackage: {_id: body._id}}});
         await userModel.findOneAndUpdate({_id: id}, {$push: {'CartPackage': body}});

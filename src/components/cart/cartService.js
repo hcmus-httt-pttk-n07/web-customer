@@ -18,14 +18,12 @@ module.exports.delete = async (userId, type, vaccineID) => {
 
 module.exports.changeQuantityVaccine = async (user, vaccineId, quantity) => {
     try {
-        console.log(user.CartVaccine);
         await user.CartVaccine.forEach(vaccine => {
             if (vaccine._id === vaccineId) {
                 vaccine.SoLuong = quantity;
                 vaccine.TongTien =  Math.round( vaccine.SoLuong * vaccine.Gia * 100) / 100;
             }
         });
-        console.log(user.CartVaccine);
         await userModel.findByIdAndUpdate(user._id, {$set: {CartVaccine: user.CartVaccine}});
     } catch (err) {
         throw err;
@@ -40,6 +38,7 @@ module.exports.changeQuantityPackage = async (user, vaccineId, quantity) => {
                 vaccine.TongTien =  Math.round( vaccine.SoLuong * vaccine.Gia * 100) / 100;
             }
         });
+        console.log(user.CartPackage);
         await userModel.findByIdAndUpdate(user._id, {$set: {CartPackage: user.CartPackage}});
     } catch (err) {
         throw err;
