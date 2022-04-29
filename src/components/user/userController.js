@@ -20,3 +20,11 @@ module.exports.changeAvatar = async (req, res) => {
         res.status(500).json({message: err.message});
     }
 }
+
+exports.renderBill = async (req, res) => {
+    try {
+        res.render("user/views/order");
+    } catch (e) {
+        res.status(500).send({message: e.message});
+    }
+};

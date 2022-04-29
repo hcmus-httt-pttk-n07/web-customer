@@ -68,6 +68,27 @@ a:hover {
     background-color: #51eaea;
     color: #000; }
 
+.btn.btn-cancel {
+    background: rgb(182,0,0);
+    color: #fff; }
+.btn.btn-cancel:hover, .btn.btn-cancel:active, .btn.btn-cancel:focus {
+    background-color: #51eaea;
+    color: #000; }
+
+.btn.btn-approve {
+    background: rgb(0,130,13);
+    color: #fff; }
+.btn.btn-approve:hover, .btn.btn-cancel:active, .btn.btn-cancel:focus {
+    background-color: #51eaea;
+    color: #000; }
+
+.btn.btn-detail {
+    background: rgb(196,196,196);
+    color: #fff; }
+.btn.btn-detail:hover, .btn.btn-cancel:active, .btn.btn-cancel:focus {
+    background-color: #51eaea;
+    color: #000; }
+
 .form-control {
     height: 43px; }
 .form-control:active, .form-control:focus {

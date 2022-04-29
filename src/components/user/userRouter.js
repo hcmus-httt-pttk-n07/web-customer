@@ -6,4 +6,6 @@ router.get('/profile', userController.getInfo);
 
 router.post("/profile", upload.single('avatar_url'), userController.changeAvatar);
 
+router.get("/order", userController.renderBill);
+
 module.exports = router;
