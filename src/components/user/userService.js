@@ -1,6 +1,6 @@
 const userModel = require('./userModel');
 const cloudinary = require('../../config/cloudinary.config');
-const userUtils = require('./userUtils');
+const userUtils = require('../../utils/utils');
 
 module.exports.login = async (username, password) => {
     try {
@@ -65,6 +65,7 @@ module.exports.addVaccineToCart = async (id, body) => {
         body.TongTien = Math.round(body.Gia * body.SoLuong * 100) / 100;
         if (body._id) await userModel.findByIdAndUpdate(id, {$pull: {CartVaccine: {_id: body._id}}});
         await userModel.findOneAndUpdate({_id: id}, {$push: {'CartVaccine': body}});
+        return body;
     } catch (error) {
         throw error;
     }
@@ -76,6 +77,7 @@ module.exports.addPackageToCart = async (id, body) => {
         body.TongTien = Math.round(body.Gia * body.SoLuong * 100) / 100;
         if (body._id) await userModel.findByIdAndUpdate(id, {$pull: {CartPackage: {_id: body._id}}});
         await userModel.findOneAndUpdate({_id: id}, {$push: {'CartPackage': body}});
+        return body;
     } catch (error) {
         throw error;
     }

@@ -1,0 +1,166 @@
+<div class="bg-light py-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 mb-0">
+				<a href="/">Trang chu</a> <span class="mx-2 mb-0">/</span>
+				<strong class="text-black">Thanh toan</strong>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="site-section">
+	<div class="container">
+		<form action="/order/buy" method="post">
+			<div class="row">
+				<div class="col-md-6 mb-5 mb-md-0">
+					<h2 class="h3 mb-3 text-black">Chi tiet hoa don</h2>
+					<div class="p-3 p-lg-5 border">
+						<div class="form-group">
+							<label for="QuocGia" class="text-black">Quoc gia <span class="text-danger">*</span></label>
+							<input type="text" class="form-control" name="QuocGia" placeholder="{{user.QuocGia}}">
+						</div>
+						<div class="form-group row">
+							<div class="col-md-6">
+								<label for="HoTen" class="text-black">Ho va Ten <span
+										class="text-danger">*</span></label>
+								<input type="text" class="form-control" name="HoTen" placeholder="{{user.HoTen}}">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="NgaySinh" class="text-black">Ngay sinh </label>
+								<input type="text" class="form-control" name="NgaySinh"
+									   placeholder="{{user.NgaySinh}}">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="DiaChi" class="text-black">Dia chi <span
+										class="text-danger">*</span></label>
+								<input type="text" class="form-control" name="DiaChi" placeholder="{{user.DiaChi}}">
+							</div>
+
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12">
+								<input type="text" class="form-control" name="DiaChiPhu"
+									   placeholder="Can, phong, ... (neu co)">
+							</div>
+						</div>
+
+
+						<div class="form-group row mb-5">
+							<div class="col-md-6">
+								<label for="Email" class="text-black">Email <span class="text-danger">*</span></label>
+								<input type="text" class="form-control" name="Email" placeholder="{{user.Email}}">
+							</div>
+							<div class="col-md-6">
+								<label for="SDT" class="text-black">SDT <span class="text-danger">*</span></label>
+								<input type="text" class="form-control" name="SDT" placeholder="{{user.SDT}}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="GhiChu" class="text-black">Ghi chu</label>
+							<textarea name="GhiChu" id="c_order_notes" cols="30" rows="5" class="form-control"
+									  placeholder="Ghi chu..."></textarea>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h2 class="h3 mb-3 text-black">Don hang cua ban</h2>
+							<div class="p-3 p-lg-5 border">
+								<table class="table site-block-order-table mb-5">
+									<thead>
+									<th>San pham</th>
+									<th>Tong tien</th>
+									</thead>
+									<tbody>
+									{{#each user.CartVaccine}}
+										<tr>
+											<td> - {{this.TenVcine}} <strong class="mx-2">x</strong> {{this.SoLuong}}
+											</td>
+											<td>${{this.TongTien}}</td>
+										</tr>
+									{{/each}}
+									{{#each user.CartPackage}}
+										<tr>
+											<td> - Goi {{this.TenGoi}} <strong class="mx-2">x</strong> {{this.SoLuong}}
+											</td>
+											<td>${{this.TongTien}}</td>
+										</tr>
+									{{/each}}
+									<tr>
+										<td class="text-black font-weight-bold">Tong san pham</td>
+										<td class="text-black font-weight-bold">{{quantity}}</td>
+									</tr>
+									<tr>
+										<td class="text-black font-weight-bold">Tong tien</td>
+										<td class="text-black font-weight-bold">${{total}}</td>
+									</tr>
+									<tr>
+										<td class="text-black font-weight-bold">Hinh thuc thanh toan</td>
+										<td class="text-black font-weight-bold">
+											<select style="padding: 0 10px 0 10px; border-radius: 6px"
+													class="form-select" name="HinhThucTT" aria-label="Default select example">
+												<option value="ToanBo">Toan Bo</option>
+												<option value="TraGop">Tra Gop</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="text-black font-weight-bold">Phuong thuc thanh toan</td>
+										<td class="text-black font-weight-bold">
+											<select style="padding: 0 10px 0 10px; border-radius: 6px"
+													class="form-select" name="PhuongThucTT" aria-label="Default select example">
+												<option value="Paypal">Paypal</option>
+												<option value="ATM">The ATM</option>
+												<option value="Cash">Tien Mat</option>
+											</select>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+								<div class="form-group">
+									<button class="btn btn-primary btn-lg btn-block" type="submit">Dat hang</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<div class="site-section bg-secondary bg-image" style="background-image: url('/img/bg_2.jpg');">
+	<div class="container">
+		<div class="row align-items-stretch">
+			<div class="col-lg-6 mb-5 mb-lg-0">
+				<a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/img/bg_1.jpg');">
+					<div class="banner-1-inner align-self-center">
+						<p>Dam bao vaccine luon on dinh su dung tot, khong de lai di chung
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-6 mb-5 mb-lg-0">
+				<a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/img/bg_2.jpg');">
+					<div class="banner-1-inner ml-auto  align-self-center">
+						<h2>Chuyen Gia</h2>
+						<p>Cac Vaccine cua chung toi luon dam bao an toan va duoc phe chuan boi cac chuyen gia hang dau
+							Viet Nam
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

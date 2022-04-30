@@ -19,7 +19,6 @@ function edit(field) {
     $.post(url, {field: field, new_val: new_val}, function () {
         const need_change_element = $(`#${field}`)
         need_change_element.text(new_val)
-
     }).fail(function (data) {
         if (data.status === 401)
             window.location.href = '/auth/login?return=' + window.location.href
@@ -37,6 +36,21 @@ function editDate() {
             field: 'NgaySinh',
             new_val
         })
-    }).then();
-    $('#NgaySinh').text(new_val)
+    }).then(() => {
+        $('#FNgaySinh').html(
+            `<p class="m-b-10 f-w-600 profile-header-field">Ngay Sinh</p>
+
+            <div class="current-info" style="display: flex; flex-direction: row;">
+                <h6 class="text-muted f-w-400">${new_val}</h6>
+                <i class="fa-solid fa-pen-to-square"
+                   onClick="showForm('NgaySinh')"></i>
+            </div>
+
+            <div class="container edit-form" style="display: none">
+                <input class="edit-input" type="date" value="${new_val}" id="DNgaySinh">
+                <input type="submit" value="Apply" class="sub-btn"
+                onClick="editDate()">
+            </div>`
+        )
+    });
 }

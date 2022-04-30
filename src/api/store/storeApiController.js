@@ -30,7 +30,7 @@ module.exports.addVaccineToCart = async (req, res) => {
             res.send({message: 'You must login to add vaccine to cart'});
             return;
         }
-        await userService.addVaccineToCart(req.user._id, req.body);
+        req.user.CartVaccine.push(await userService.addVaccineToCart(req.user._id, req.body));
         res.send({success: 'Add vaccine to cart successfully'});
     } catch (e) {
         res.status(500).send({message: e.message});
@@ -43,7 +43,7 @@ module.exports.addPackageToCart = async (req, res) => {
             res.send({message: 'You must login to add package to cart'});
             return;
         }
-        await userService.addPackageToCart(req.user._id, req.body);
+        req.user.CartPackage.push(await userService.addPackageToCart(req.user._id, req.body));
         res.send({success: 'Add package to cart successfully'});
     } catch (e) {
         res.status(500).send({message: e.message});

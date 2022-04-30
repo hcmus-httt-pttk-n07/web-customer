@@ -36,7 +36,10 @@
 								<td>${{this.Gia}}</td>
 								<td>
 									<label>
-										<input type="date" value="{{this.NgayTiem}}" onclick="changeDate('vaccine','{{this._id}}')" class="date-input" id="date-injections">
+										<input type="date" value="{{this.NgayTiem}}"
+											   class="date-input"
+											   required pattern="\d{4}-\d{2}-\d{2}"
+											   onchange="changeDate('vaccine','{{this._id}}', this)">
 									</label>
 								</td>
 								<td><a href="/cart/delete?id={{this._id}}&type=CartVaccine" class="btn btn-primary
@@ -54,7 +57,10 @@
 								<td>${{this.Gia}}</td>
 								<td>
 									<label>
-										<input type="date" value="{{this.NgayTiem}}" onclick="changeDate('package','{{this._id}}')" class="date-input" name="start-date">
+										<input type="date" value="{{this.NgayTiem}}"
+											   class="date-input"
+											   required pattern="\d{4}-\d{2}-\d{2}"
+											   onchange="changeDate('package','{{this._id}}', this)"">
 									</label>
 								</td>
 								<td><a href="/cart/delete?id={{this._id}}&type=CartPackage" class="btn btn-primary

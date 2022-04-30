@@ -38,7 +38,32 @@ module.exports.changeQuantityPackage = async (user, vaccineId, quantity) => {
                 vaccine.TongTien =  Math.round( vaccine.SoLuong * vaccine.Gia * 100) / 100;
             }
         });
-        console.log(user.CartPackage);
+        await userModel.findByIdAndUpdate(user._id, {$set: {CartPackage: user.CartPackage}});
+    } catch (err) {
+        throw err;
+    }
+};
+
+module.exports.changeDateVaccine = async (user, vaccineId, date) => {
+    try {
+        await user.CartVaccine.forEach(vaccine => {
+            if (vaccine._id === vaccineId) {
+                vaccine.NgayTiem = date;
+            }
+        });
+        await userModel.findByIdAndUpdate(user._id, {$set: {CartVaccine: user.CartVaccine}});
+    } catch (err) {
+        throw err;
+    }
+};
+
+module.exports.changeDatePackage = async (user, vaccineId, date) => {
+    try {
+        await user.CartPackage.forEach(vaccine => {
+            if (vaccine._id === vaccineId) {
+                vaccine.NgayTiem = date;
+            }
+        });
         await userModel.findByIdAndUpdate(user._id, {$set: {CartPackage: user.CartPackage}});
     } catch (err) {
         throw err;
