@@ -1,17 +1,21 @@
+{{#each order}}
 <div class="card mb-3 mx-auto" style="max-width: 700px;">
-    <div class="row g-0">
-        <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-4" style="display:flex; align-items:center;">
             <img src="https://images.theconversation.com/files/411706/original/file-20210716-21-lunh2y.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
-                class="img-fluid rounded-start" style="margin: auto; display: block; vertical-align: middle">
+                class="img-fluid rounded-start">
         </div>
         <div class="col-md-8 d-flex flex-column">
             <div class="card-body">
-                <h5 class="card-title">Hoa Don 1</h5>
-                <p class="card-subtitle mb-2 text-muted">10$</p>
+                <h5 class="card-title">{{this.NgayLap}}</h5>
+                <p class="card-text">Loại hóa đơn: {{this.LoaiHDon}}</p>
+                <p class="card-text">Hình thức thanh toán: {{this.HinhThucTT}}</p>
+                <p class="card-text">Phương thức thanh toán: {{this.PhuongThucTT}}</p>
+                <p class="card-text font-weight-bold">TỔNG TIỀN: {{this.TongTien}}</p>
             </div>
             <div class="card-body d-flex">
                 <div class="p-2">
-                    <a href="#" class="btn btn-approve">Đã giao</a>
+                    <a href="#" class="btn btn-approve">{{this.XacNhanTT}}</a>
                 </div>
                 <div class="p-2">
                     <a href="#" class="btn btn-cancel">Hủy</a>
@@ -22,20 +26,5 @@
             </div>
         </div>
     </div>
-
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="https://images.theconversation.com/files/411706/original/file-20210716-21-lunh2y.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
-                class="img-fluid rounded-start"
-                style="height: 100%; margin: auto; display: block; vertical-align: middle">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Hoa Don 2</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
 </div>
+{{/each}}
