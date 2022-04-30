@@ -2,8 +2,10 @@
 <div class="card mb-3 mx-auto" style="max-width: 700px;">
     <div class="row">
         <div class="col-md-4" style="display:flex; align-items:center;">
-            <img src="https://images.theconversation.com/files/411706/original/file-20210716-21-lunh2y.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
-                class="img-fluid rounded-start">
+            {{!-- <img
+                src="https://images.theconversation.com/files/411706/original/file-20210716-21-lunh2y.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+                class="img-fluid rounded-start"> --}}
+            <img src="{{this.SanPham.0.HinhAnh}}" style="height: 200px" class="img-fluid rounded-start">
         </div>
         <div class="col-md-8 d-flex flex-column">
             <div class="card-body">

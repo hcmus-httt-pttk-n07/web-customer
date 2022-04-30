@@ -24,9 +24,7 @@ module.exports.changeAvatar = async (req, res) => {
 
 module.exports.renderBill = async (req, res) => {
     try {
-        console.log(req.user._id);
         const order = await orderService.getOrderByMaKH(req.user._id);
-        console.log(order);
         res.render("user/views/order",{order});
     } catch (e) {
         res.status(500).send({message: e.message});

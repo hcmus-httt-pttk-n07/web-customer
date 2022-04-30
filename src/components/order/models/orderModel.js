@@ -10,7 +10,14 @@ const HoaDon = new Schema({
     XacNhanTT: Boolean,
     PhuongThucTT: String,
     MaKHang: String,
-    MaPDHang: String
+    MaPDHang: String,
+    SanPham: [
+        {
+            _id: String,
+            HinhAnh: String,
+            SL: Number
+        }
+    ]
 }, {
     versionKey: false
 });
