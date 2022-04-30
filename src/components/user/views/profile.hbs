@@ -66,16 +66,18 @@
 											</div>
 											<div class="col-sm-6 NgaySinh">
 												<p class="m-b-10 f-w-600 profile-header-field">Ngay Sinh</p>
+
 												<div class="current-info" style="display: flex; flex-direction: row;">
 													<h6 class="text-muted f-w-400" id="NgaySinh"> {{user.NgaySinh}}</h6>
 													<i class="fa-solid fa-pen-to-square"
 													   onclick="showForm('NgaySinh')"></i>
 												</div>
-												<form method="post" class="edit-form" style="display: none">
+
+												<form class="edit-form" style="display: none">
 													<div class="container edit-form">
-														<input class="edit-input" type="text" name="NgaySinh">
+														<input class="edit-input" type="date" value="{{user.NgaySinh}}" id="DNgaySinh">
 														<input type="submit" value="Apply" class="sub-btn"
-															   onclick="edit('NgaySinh')">
+															   onclick="editDate()">
 													</div>
 												</form>
 											</div>

@@ -46,7 +46,8 @@
 										<input type="text" class="form-control text-center" value="{{this.SoLuong}}"
 											   placeholder="" style="width: 10px;"
 											   aria-label="Example text with button addon"
-											   aria-describedby="button-addon1" id="idPackage">
+											   onkeyup="changeQuantity(this,'vaccine','{{this._id}}','{{this.Gia}}')"
+											   aria-describedby="button-addon1" id="quantity-{{this._id}}">
 										<div class="input-group-append">
 											<button class="btn btn-outline-primary js-btn-plus" type="button"
 													onclick="changeQuantity('+','vaccine','{{this._id}}','{{this.Gia}}')">
@@ -68,7 +69,7 @@
 								<td class="product-name">
 									<h2 class="h5 text-black">{{this.TenGoi}}</h2>
 								</td>
-								<td>{{this.Gia}}</td>
+								<td>${{this.Gia}}</td>
 								<td style="justify-content: center;">
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
@@ -80,7 +81,8 @@
 										<input type="text" class="form-control text-center" value="{{this.SoLuong}}"
 											   placeholder="" style="width: 10px;"
 											   aria-label="Example text with button addon"
-											   aria-describedby="button-addon1" id="idPackage">
+											   onclick="changeQuantity(this,'package','{{this._id}}','{{this.Gia}}')"
+											   aria-describedby="button-addon1" id="quantity-{{this._id}}">
 										<div class="input-group-append">
 											<button class="btn btn-outline-primary js-btn-plus" type="button"
 													onclick="changeQuantity('+','package','{{this._id}}','{{this.Gia}}')">
@@ -119,13 +121,20 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<label class="text-black h4" for="coupon">Trung tam</label>
+						<label class="text-black h4" for="coupon">Trung Tam</label>
 					</div>
 					<div class="col-md-8 mb-3 mb-md-0">
-						<input type="text" class="form-control py-3" id="coupon" placeholder="Trung tam Ho Chi Minh">
+						<select class="form-control" id="center">
+							<option>Trung tam Ho Chi Minh</option>
+							<option>Trung tam Ha Noi</option>
+							<option>Trung tam Gia Lai</option>
+						</select>
+						<div id="center-list">
+
+						</div>
 					</div>
 					<div class="col-md-4">
-						<button class="btn btn-primary btn-md px-4">Xac Nhan</button>
+						<button class="btn btn-primary btn-md px-4" onclick="addCenter()">Xac Nhan</button>
 					</div>
 				</div>
 			</div>

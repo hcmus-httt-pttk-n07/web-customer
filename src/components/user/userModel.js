@@ -24,7 +24,7 @@ const KhachHang = new Schema({
             Gia: Number,
             HinhAnh: String,
             SoLuong: Number,
-            NgayTiem: Date,
+            NgayTiem: String,
             TongTien: Number
         }
     ],
@@ -36,7 +36,7 @@ const KhachHang = new Schema({
             Gia: Number,
             HinhAnh: String,
             SoLuong: Number,
-            NgayTiem: Date,
+            NgayTiem: String,
             TongTien: Number
         }
     ]

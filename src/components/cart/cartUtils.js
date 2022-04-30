@@ -35,3 +35,41 @@ module.exports.getQuantity = (CartVaccine, CartPackage) => {
     throw error;
   }
 };
+
+module.exports.getTotal2 = (CartVaccine, CartPackage) => {
+  try {
+    let total = 0;
+    if (CartVaccine.length > 0) {
+      CartVaccine.forEach(vaccine => {
+        total += vaccine.Gia;
+      });
+    }
+    if (CartPackage.length > 0) {
+      CartPackage.forEach(vaccine => {
+        total += vaccine.Gia;
+      });
+    }
+    return Math.round(total * 100) / 100;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports.getQuantity2 = (CartVaccine, CartPackage) => {
+  try {
+    let quantity = 0;
+    if (CartVaccine.length > 0) {
+      CartVaccine.forEach(vaccine => {
+        quantity += 1;
+      });
+    }
+    if (CartPackage.length > 0) {
+      CartPackage.forEach(vaccine => {
+        quantity += 1;
+      });
+    }
+    return quantity;
+  } catch (error) {
+    throw error;
+  }
+};

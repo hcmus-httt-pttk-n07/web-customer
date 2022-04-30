@@ -20,65 +20,47 @@
 							<th class="product-thumbnail">Hinh anh</th>
 							<th class="product-name">Ten</th>
 							<th class="product-price">Gia</th>
-							<th class="product-quantity">Ngay tiem</th>
-							<th class="product-total">Tong tien</th>
+							<th class="product-quantity">Ngay Tiem</th>
 							<th class="product-remove">Xoa</th>
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td class="product-thumbnail">
-								<img src="/img/product_02.png" alt="Image" class="img-fluid">
-							</td>
-							<td class="product-name">
-								<h2 class="h5 text-black">Ibuprofen</h2>
-							</td>
-							<td>$55.00</td>
-							<td>
-								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
-										</button>
-									</div>
-									<input type="text" class="form-control text-center" value="1" placeholder=""
-										   aria-label="Example text with button addon" aria-describedby="button-addon1">
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
-										</button>
-									</div>
-								</div>
-
-							</td>
-							<td>$49.00</td>
-							<td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
-						</tr>
-
-						<tr>
-							<td class="product-thumbnail">
-								<img src="/img/product_01.png" alt="Image" class="img-fluid">
-							</td>
-							<td class="product-name">
-								<h2 class="h5 text-black">Bioderma</h2>
-							</td>
-							<td>$49.00</td>
-							<td>
-								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
-										</button>
-									</div>
-									<input type="text" class="form-control text-center" value="1" placeholder=""
-										   aria-label="Example text with button addon" aria-describedby="button-addon1">
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
-										</button>
-									</div>
-								</div>
-
-							</td>
-							<td>$49.00</td>
-							<td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
-						</tr>
+						{{#each CartVaccine}}
+							<tr>
+								<td class="product-thumbnail">
+									<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
+								</td>
+								<td class="product-name">
+									<h2 class="h5 text-black">{{this.TenVcine}}</h2>
+								</td>
+								<td>${{this.Gia}}</td>
+								<td>
+									<label>
+										<input type="date" value="{{this.NgayTiem}}" onclick="changeDate('vaccine','{{this._id}}')" class="date-input" id="date-injections">
+									</label>
+								</td>
+								<td><a href="/cart/delete?id={{this._id}}&type=CartVaccine" class="btn btn-primary
+									height-auto btn-sm">X</a></td>
+							</tr>
+						{{/each}}
+						{{#each CartPackage}}
+							<tr>
+								<td class="product-thumbnail">
+									<img src="{{this.HinhAnh}}" alt="Image" class="img-fluid">
+								</td>
+								<td class="product-name">
+									<h2 class="h5 text-black">{{this.TenGoi}}</h2>
+								</td>
+								<td>${{this.Gia}}</td>
+								<td>
+									<label>
+										<input type="date" value="{{this.NgayTiem}}" onclick="changeDate('package','{{this._id}}')" class="date-input" name="start-date">
+									</label>
+								</td>
+								<td><a href="/cart/delete?id={{this._id}}&type=CartPackage" class="btn btn-primary
+									height-auto btn-sm">X</a></td>
+							</tr>
+						{{/each}}
 						</tbody>
 					</table>
 				</div>
@@ -90,25 +72,33 @@
 				<div class="row mb-5">
 					<div class="col-md-6 mb-3 mb-md-0">
 						<form action="/cart/buy" method="get">
-						<button type="submit" class="btn btn-outline-primary btn-md btn-block">Dat mua</button>
+							<button type="submit" class="btn btn-outline-primary btn-md btn-block">Dat mua</button>
 						</form>
 					</div>
 					<div class="col-md-6">
 						<form action="/cart/register" method="get">
-						<button type="submit" class="btn btn-primary btn-md btn-block">Dang ky tiem chung
-						</button>
+							<button type="submit" class="btn btn-primary btn-md btn-block">Dang ky tiem
+								chung
+							</button>
 						</form>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<label class="text-black h4" for="coupon">Trung tam</label>
+						<label class="text-black h4" for="coupon">Trung Tam</label>
 					</div>
 					<div class="col-md-8 mb-3 mb-md-0">
-						<input type="text" class="form-control py-3" id="coupon" placeholder="Trung tam Ho Chi Minh">
+						<select class="form-control" id="center">
+							<option>Trung tam Ho Chi Minh</option>
+							<option>Trung tam Ha Noi</option>
+							<option>Trung tam Gia Lai</option>
+						</select>
+						<div id="center-list">
+
+						</div>
 					</div>
 					<div class="col-md-4">
-						<button class="btn btn-primary btn-md px-4">Xac Nhan</button>
+						<button class="btn btn-primary btn-md px-4" onclick="addCenter()">Xac Nhan</button>
 					</div>
 				</div>
 			</div>
@@ -122,10 +112,10 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<span class="text-black">Tong phu</span>
+								<span class="text-black">Tong san pham</span>
 							</div>
 							<div class="col-md-6 text-right">
-								<strong class="text-black">$230.00</strong>
+								<strong class="text-black" id="quantity">{{quantity}}</strong>
 							</div>
 						</div>
 						<div class="row mb-5">
@@ -133,7 +123,7 @@
 								<span class="text-black">Tong tien</span>
 							</div>
 							<div class="col-md-6 text-right">
-								<strong class="text-black">$230.00</strong>
+								<strong class="text-black" id="total">${{total}}</strong>
 							</div>
 						</div>
 
@@ -175,3 +165,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="/js/cartAjax.js"></script>
