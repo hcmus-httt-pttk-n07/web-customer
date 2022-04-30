@@ -11,7 +11,7 @@
 
 <div class="site-section">
 	<div class="container">
-		<form action="/order/buy" method="post">
+		<form action="/order/register" method="post">
 			<div class="row">
 				<div class="col-md-6 mb-5 mb-md-0">
 					<h2 class="h3 mb-3 text-black">Chi tiet hoa don</h2>
@@ -79,21 +79,21 @@
 								<table class="table site-block-order-table mb-5">
 									<thead>
 									<th>San pham</th>
-									<th>Tong tien</th>
+									<th>Thoi Gian Tiem</th>
 									</thead>
 									<tbody>
 									{{#each user.CartVaccine}}
 										<tr>
-											<td> {{this.TenVcine}} <strong class="mx-2">x</strong> {{this.SoLuong}}
+											<td> {{this.TenVcine}}
 											</td>
-											<td>${{this.TongTien}}</td>
+											<td>{{this.NgayTiem}}</td>
 										</tr>
 									{{/each}}
 									{{#each user.CartPackage}}
 										<tr>
-											<td> Goi {{this.TenGoi}} <strong class="mx-2">x</strong> {{this.SoLuong}}
+											<td> Goi {{this.TenGoi}}
 											</td>
-											<td>${{this.TongTien}}</td>
+											<td>{{this.NgayTiem}}</td>
 										</tr>
 									{{/each}}
 									<tr>

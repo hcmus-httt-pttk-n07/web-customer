@@ -11,15 +11,39 @@ exports.renderBuyOrder = (req, res) => {
     }
 };
 
-exports.orderByBuy = async (req, res) => {
+exports.renderRegisterOrder = (req, res) => {
     try {
-        await orderService.orderForBuy(req.user, req.body);
-        res.redirect('/order/success');
+        const total = orderUtils.getTotal2(req.user.CartVaccine, req.user.CartPackage);
+        console.log(total);
+        const quantity = orderUtils.getQuantity2(req.user.CartVaccine, req.user.CartPackage);
+        res.render("order/views/order-register", {user: req.user, total, quantity});
     } catch (e) {
         res.status(500).send({message: e.message});
     }
 };
 
-exports.renderSuccess = (req, res) => {
-    res.render("order/views/order-success");
+exports.orderForBuy = async (req, res) => {
+    try {
+        await orderService.orderForBuy(req.user, req.body);
+        res.redirect('/order/buy/success');
+    } catch (e) {
+        res.status(500).send({message: e.message});
+    }
+};
+
+exports.orderForRegister = async (req, res) => {
+    try {
+        await orderService.orderForRegister(req.user, req.body);
+        res.redirect('/order/register/success');
+    } catch (e) {
+        res.status(500).send({message: e.message});
+    }
+};
+
+exports.renderBuySuccess = (req, res) => {
+    res.render("order/views/buy-success");
+};
+
+exports.renderRegisterSuccess = (req, res) => {
+    res.render("order/views/register-success");
 };
