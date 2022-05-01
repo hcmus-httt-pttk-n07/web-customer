@@ -22,7 +22,7 @@ module.exports.changeAvatar = async (req, res) => {
     }
 }
 
-module.exports.renderBill = async (req, res) => {
+module.exports.renderOrder = async (req, res) => {
     try {
         const order = await orderService.getOrderByMaKH(req.user._id);
         res.render("user/views/order",{order});

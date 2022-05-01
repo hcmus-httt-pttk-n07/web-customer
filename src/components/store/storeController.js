@@ -1,5 +1,5 @@
 const vaccineService = require('../vaccine/vaccineService');
-
+// KH -> MHstore-detail -> storeControlelr -> vaccineService
 exports.renderStore = async (req, res) => {
     try {
         res.render("store/views/store");

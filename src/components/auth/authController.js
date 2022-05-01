@@ -21,25 +21,10 @@ exports.renderRegister = (req, res) => {
 
 exports.register = async (req, res) => {
     try {
-        if (req.body.Password.length < 6) {
-            res.redirect("/auth/register?message=Mat khau phai co it nhat 6 ki tu&state=false");
-            return;
-        } else if (req.body.Username.length < 6) {
-            res.redirect("/auth/register?message=Ten dang nhap phai co it nhat 6 ki tu&state=false");
-            return;
+        const user = await userService.register(req.body);
+        if(user!==null){
+            res.redirect('/auth/login?message=Tao tai khoan thanh cong!&state=true');
         }
-        else if (req.body.Name.length < 1) {
-            res.redirect("/auth/register?message=Ho va ten phai co it nhat 1 ki tu&state=false");
-            return;
-        }
-
-        await userService.register(req.body)
-            .then(user => {
-                res.redirect('/auth/login?message=Dang ky thanh cong, ban co the dang nhap&state=true');
-            })
-            .catch(err => {
-                res.redirect('/auth/register?message=Dang ky that bai&state=false');
-            });
     } catch (e) {
         res.status(500).json({message: e.message});
     }
