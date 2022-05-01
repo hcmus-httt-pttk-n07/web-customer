@@ -3,6 +3,7 @@ const userController = require('./userController');
 const upload = require("../../config/multer.config");
 
 router.get('/profile', userController.getInfo);
+router.get('/schedules',userController.renderSchedule);
 
 router.post("/profile", upload.single('avatar_url'), userController.changeAvatar);
 
