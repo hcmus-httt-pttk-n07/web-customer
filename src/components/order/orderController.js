@@ -14,7 +14,6 @@ exports.renderBuyOrder = (req, res) => {
 exports.renderRegisterOrder = (req, res) => {
     try {
         const total = orderUtils.getTotal2(req.user.CartVaccine, req.user.CartPackage);
-        console.log(total);
         const quantity = orderUtils.getQuantity2(req.user.CartVaccine, req.user.CartPackage);
         res.render("order/views/order-register", {user: req.user, total, quantity});
     } catch (e) {
