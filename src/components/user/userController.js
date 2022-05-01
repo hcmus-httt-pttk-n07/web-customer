@@ -30,3 +30,16 @@ module.exports.renderOrder = async (req, res) => {
         res.status(500).send({message: e.message});
     }
 };
+
+module.exports.renderSchedule = (req, res) => {
+  try {
+    if (req.user) {
+        console.log(req.user);
+      res.render("user/views/schedules", {
+        user: req.user,
+      });
+    }
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+}

@@ -1,0 +1,26 @@
+#cardVaccine {
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 4px 4px #d9d9d9;
+}
+#avatarVaccine {
+    border: 2px solid;
+}
+#imageSchedules {
+    background-color: #cccccc;
+}
+#img-container {
+    display: inline;
+}
+#nav li{
+    display: inline-block;
+    padding: 20px;
+}
+.schedule-title {
+    font-weight: bold;
+}
+#schedule-notificaion {
+    margin: 20px;
+    margin-left: 200px; 
+}
