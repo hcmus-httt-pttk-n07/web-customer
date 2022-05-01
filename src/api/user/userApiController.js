@@ -2,7 +2,6 @@ const userService = require("../../components/user/userService");
 
 exports.editProfile = async (req, res) => {
     try {
-        console.log(req.body);
         if (req.user == null) {
             res.status(401).json({"message": "UnAuthorized"})
             return;
@@ -45,3 +44,4 @@ exports.editProfile = async (req, res) => {
         res.status(500).json({message: err.message});
     }
 }
+

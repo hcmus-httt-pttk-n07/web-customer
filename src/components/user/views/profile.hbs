@@ -1,3 +1,14 @@
+<div class="bg-light py-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 mb-0">
+				<a href="/">Trang chu</a> <span class="mx-2 mb-0">/</span>
+				<strong class="text-black">Thong tin ca nhan</strong>
+			</div>
+		</div>
+	</div>
+</div>
+
 <section class="profile" style="color:#000;">
 	<div class="container">
 		<div class="page-content page-container" id="page-content">
@@ -7,7 +18,8 @@
 						<div class="card user-card-full">
 							<div class="row mx-0" style="height: 500px;">
 								<div class="col-sm-4 p-0" id="img-container">
-									<img src="{{user.Avatar}}" style="width: 400px; height: 400px" class="img-radius mb-4" alt="User-Profile-Image">
+									<img src="{{user.Avatar}}" style="width: 400px; height: 400px"
+										 class="img-radius mb-4" alt="User-Profile-Image">
 									<div class="mx-auto w-75 mb-3">
 										<button type="button" class="btn btn-primary px-4 w-100" style="height:50px;"
 												data-toggle="modal" data-target="#modalChangeAvatar">
@@ -47,7 +59,8 @@
 								</div>
 								<div class="col-sm-8">
 									<div class="card-block">
-										<h6 class="m-b-20 p-b-5 b-b-default f-w-600 profile-header-section">Thong Tin Ca Nhan</h6>
+										<h6 class="m-b-20 p-b-5 b-b-default f-w-600 profile-header-section">Thong Tin Ca
+											Nhan</h6>
 										<div class="row">
 											<div class="col-sm-6 HoTen">
 												<p class="m-b-10 f-w-600 profile-header-field">Ho Va Ten</p>
@@ -64,22 +77,21 @@
 													</div>
 												</form>
 											</div>
-											<div class="col-sm-6 NgaySinh">
+											<div class="col-sm-6 NgaySinh" id="FNgaySinh">
 												<p class="m-b-10 f-w-600 profile-header-field">Ngay Sinh</p>
 
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="NgaySinh"> {{user.NgaySinh}}</h6>
+													<h6 class="text-muted f-w-400"> {{user.NgaySinh}}</h6>
 													<i class="fa-solid fa-pen-to-square"
 													   onclick="showForm('NgaySinh')"></i>
 												</div>
 
-												<form class="edit-form" style="display: none">
-													<div class="container edit-form">
-														<input class="edit-input" type="date" value="{{user.NgaySinh}}" id="DNgaySinh">
-														<input type="submit" value="Apply" class="sub-btn"
-															   onclick="editDate()">
-													</div>
-												</form>
+												<div class="container edit-form" style="display: none">
+													<input class="edit-input" type="date" value="{{user.NgaySinh}}"
+														   id="DNgaySinh">
+													<input type="submit" value="Apply" class="sub-btn"
+														   onclick="editDate()">
+												</div>
 											</div>
 										</div>
 										<br>
@@ -135,7 +147,8 @@
 											<div class="col-sm-6 GioiThieu">
 												<p class="m-b-10 f-w-600 profile-header-field">Gioi Thieu</p>
 												<div class="current-info" style="display: flex; flex-direction: row;">
-													<h6 class="text-muted f-w-400" id="GioiThieu">{{user.GioiThieu}}</h6>
+													<h6 class="text-muted f-w-400"
+														id="GioiThieu">{{user.GioiThieu}}</h6>
 													<i class="fa-solid fa-pen-to-square"
 													   onclick="showForm('GioiThieu')"></i>
 												</div>

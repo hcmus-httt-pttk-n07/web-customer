@@ -1,5 +1,5 @@
 const cartService = require('./cartService');
-const cartUtils = require('./cartUtils');
+const cartUtils = require('../../utils/utils');
 
 exports.renderRegister = async (req, res) => {
     try {
@@ -10,7 +10,8 @@ exports.renderRegister = async (req, res) => {
             CartVaccine: cart.CartVaccine,
             CartPackage: cart.CartPackage,
             total,
-            quantity
+            quantity,
+            date: cartUtils.getDate()
         });
     } catch (err) {
         res.status(500).send({message: err.message});
@@ -26,7 +27,9 @@ exports.renderBuy = async (req, res) => {
             CartVaccine: cart.CartVaccine,
             CartPackage: cart.CartPackage,
             total,
-            quantity});
+            quantity,
+            date: cartUtils.getDate()
+        });
     } catch (err) {
         res.status(500).send({message: err.message});
     }

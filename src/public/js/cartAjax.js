@@ -6,7 +6,7 @@ function changeQuantity(type, cartType, id, price) {
     else if (type === '-') quantity--;
     else quantity = type.value;
 
-    fetch('/api/cart/' + cartType, {
+    fetch('/api/cart/quantity/' + cartType, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -24,29 +24,56 @@ function changeQuantity(type, cartType, id, price) {
 }
 
 function addCenter() {
-    const center = $('#center').val();
-    $('#center-list').empty();
-    if (localStorage.getItem('center') === null) {
-        localStorage.setItem('center', JSON.stringify([center]));
-    } else {
-        let centers = JSON.parse(localStorage.getItem('center'));
-        for (let i = 0; i < centers.length; i++) {
-            if (centers[i] === center) {
-                for (let i = 0; i < centers.length; i++) {
-                    $('#center-list').append('<li>' + centers[i] + '</li>');
-                }
-                return;
-            }
-        }
-        if (centers.length === 2) {
-            centers[centers.length - 1] = center;
-        } else {
-            centers.push(center);
-        }
-        localStorage.setItem('center', JSON.stringify(centers));
-    }
-    const centers = JSON.parse(localStorage.getItem('center'));
-    for (let i = 0; i < centers.length; i++) {
-        $('#center-list').append('<li>' + centers[i] + '</li>');
-    }
+    $('#center-list').html('');
+    fetch('/api/cart/center/add', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            center: $('#center').val()
+        })
+    }).then(r => r.json()).then(data => {
+        data.centers.forEach(center => {
+            $('#center-list').append(
+                `<li style="text-align: justify-all;" class="list-group-item">
+                    ${center}
+                    <button style="border: none; background-color: transparent;" onclick="delCenter('${center}')">x</button>
+                 </li>`);
+        });
+    });
+}
+
+function delCenter(center) {
+    $('#center-list').html('');
+    fetch('/api/cart/center/del', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            center: center
+        })
+    }).then(r => r.json()).then(data => {
+        data.centers.forEach(center => {
+            $('#center-list').append(
+                `<li style="text-align: justify-all;" class="list-group-item">
+                    ${center}
+                    <button style="border: none; background-color: transparent;" onclick="delCenter('${center}')">x</button>
+                 </li>`);
+        });
+    });
+}
+
+function changeDate(cartType, id, event) {
+    fetch('/api/cart/date/' + cartType, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id,
+            date: event.value
+        })
+    }).then(r => r.json()).then();
 }
