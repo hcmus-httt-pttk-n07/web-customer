@@ -89,6 +89,13 @@ a:hover {
     background-color: #51eaea;
     color: #000; }
 
+.btn.btn-wait {
+    background: #DC9E00;
+    color: #fff; }
+.btn.btn-wait:hover, .btn.btn-wait:active, .btn.btn-wait:focus {
+    background-color: #51eaea;
+    color: #000; }
+
 .form-control {
     height: 43px; }
 .form-control:active, .form-control:focus {

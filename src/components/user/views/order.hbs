@@ -1,13 +1,33 @@
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="/">Trang Chu</a>
+                <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">Hoa Don</strong>
+            </div>
+        </div>
+    </div>
+</div>
 {{#each order}}
 <div class="card mb-3 mx-auto" style="max-width: 700px;">
     <div class="row">
         <div class="col-md-4" style="display:flex; align-items:center;">
-            {{!-- <img
+            {{! <img
                 src="https://images.theconversation.com/files/411706/original/file-20210716-21-lunh2y.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
-                class="img-fluid rounded-start"> --}}
-            <img src="{{this.Vaccine.0.HinhAnh}}" style="height: 200px" class="img-fluid rounded-start">
+                class="img-fluid rounded-start"> }}
+            {{!-- <img src="{{this.Vaccine.0.HinhAnh}}" style="height: 200px" class="img-fluid rounded-start"> --}}
+            {{#if this.Package.length}}
+            <img src="{{this.Package.0.HinhAnh}}" style="height: 200px" class="img-fluid rounded-start" />
+            {{else}}
+            {{#if this.Vaccine.length}}
+            <img src="{{this.Vaccine.0.HinhAnh}}" style="height: 200px" class="img-fluid rounded-start" />
+            {{else}}
+            <img src="https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"
+                style="height: 200px" class="img-fluid rounded-start" />
+            {{/if}}
+            {{/if}}
         </div>
-        <div class=" col-md-8 d-flex flex-column">
+        <div class="col-md-8 d-flex flex-column">
             <div class="card-body">
                 <h5 class="card-title">{{this.NgayDat}}</h5>
                 <p class="card-text">Loại hóa đơn: {{this.LoaiHDon}}</p>
@@ -18,12 +38,12 @@
             </div>
             <div class="card-body d-flex">
                 <div class="p-2">
-					{{#ifEquals this.TinhTrang "DaDuyet"}}
-                    <a href="#" class="btn btn-approve disabled-link">{{this.TinhTrang}}</a>
-					{{/ifEquals}}
-					{{#ifEquals this.TinhTrang "DangCho"}}
-						<a href="#" class="btn btn-primary">{{this.TinhTrang}}</a>
-					{{/ifEquals}}
+                    {{#ifEquals this.TinhTrang "DaDuyet"}}
+                    <a href="#" class="btn btn-approve">{{this.TinhTrang}}</a>
+                    {{/ifEquals}}
+                    {{#ifEquals this.TinhTrang "DangCho"}}
+                    <a href="#" class="btn btn-wait">{{this.TinhTrang}}</a>
+                    {{/ifEquals}}
                 </div>
                 <div class="p-2">
                     <a href="#" class="btn btn-cancel">Hủy</a>
