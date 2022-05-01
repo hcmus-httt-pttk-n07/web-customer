@@ -83,6 +83,9 @@ module.exports.getDate = function () {
         if (month < 10) {
             return `${year}-0${month}-${day}`;
         }
+        if(day < 10) {
+            return `${year}-${month}-0${day}`;
+        }
         return `${year}-${month}-${day}`;
     } catch (error) {
         throw error;

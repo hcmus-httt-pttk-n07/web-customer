@@ -18,7 +18,12 @@
             </div>
             <div class="card-body d-flex">
                 <div class="p-2">
+					{{#ifEquals this.TinhTrang "DaDuyet"}}
                     <a href="#" class="btn btn-approve disabled-link">{{this.TinhTrang}}</a>
+					{{/ifEquals}}
+					{{#ifEquals this.TinhTrang "DangCho"}}
+						<a href="#" class="btn btn-primary">{{this.TinhTrang}}</a>
+					{{/ifEquals}}
                 </div>
                 <div class="p-2">
                     <a href="#" class="btn btn-cancel">Hủy</a>

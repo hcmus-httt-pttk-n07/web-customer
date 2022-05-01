@@ -6,6 +6,8 @@ const logger = require('morgan');
 const cors = require('cors');
 const session = require("express-session");
 
+require('./helper/helper');
+
 const passport = require("./config/passport.config");
 const apiRouter = require("./api/apiRouter");
 const homepageRouter = require('./components/homepage/homepageRouter');
